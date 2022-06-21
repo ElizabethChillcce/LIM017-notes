@@ -1,10 +1,30 @@
-import {  useContext } from 'react';
+/* import {  useContext } from 'react'; */
 /* import { context } from '../../context/authContext'; */
-/* debemos importar authContext del archivo q tiene su mismo nombre  envez de context*/
+/* import { useNavigate } from 'react-router-dom'; */
+import { useAuth } from '../../context/authContext';
 
 export function Home () {
-   const authContext = useContext(context)
-   console.log(authContext);
 
-    return <div>Estas en Home</div>;
+    const {user, logout, loading} = useAuth();
+    console.log(user);
+
+    const handleLogout = async () => {
+    try {
+        await logout();
+    }
+    catch (error) {
+        console.log(error(error));
+    }
+    };
+
+    if (loading) return <h2>Actualizando</h2>
+
+    return <div>
+            <section>
+            <h2>Estas en Home {user.displayName || user.email}</h2>
+            <button onClick={handleLogout}>
+                Cerrar sesión
+            </button>
+            </section>
+        </div>;
 }

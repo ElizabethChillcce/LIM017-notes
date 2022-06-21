@@ -1,11 +1,13 @@
+/* eslint-disable jsx-a11y/alt-text */
 import './Register.css'
+import laptop from '../../images/laptop.png';
 import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
  
 export function Register () {
     const [user, setUser] = useState ({
-        /* name: '',*/
         email: '',
         password: '',
     });
@@ -24,15 +26,22 @@ export function Register () {
         await signup(user.email, user.password)
         navigate('/login')
     } catch (error) {
-        console.log(error.code);
+        console.log(error);
         if (error.code === 'auth/invalid-email') {
             setError('Correo Inválido')
+            return
         }
         if (error.code === "auth/weak-password") {
             setError ('La contraseña debe tener como mínimo 6 carácteres')
+            return
         }
         if (error.code === "auth/email-already-in-use") {
             setError ('El correo ya esta registrado')
+            return
+        }
+        if (error.code === "auth/internal-error") {
+            setError ('Error revise los campos de registro')
+            return
         }
         /* setError(error.menssage); */
        /*  switch (error.code) {
@@ -40,14 +49,17 @@ export function Register () {
             case 'error.code === "auth/invalid-email"': setError ('Digite un correo válido'); break;
             case 'error.code === "auth/email-already-in-use"': setError ('El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.'); break;
             default: return error.code;
-          }
-          return error.code; */
+          } */
+          return setError(error.code);
         }
     }
 
         return <div>
             <section>
-                <section><h2 className="titleMain">YUYARINAPAQ</h2></section>
+                <section id="containerTitleImage">
+                    <h2 className="titleMain">YUYARINAPAQ</h2>
+                    <img src={laptop} className="laptop" />
+                </section>
                 <section className="textContainer">
                     <h3 className="textRegister">Registro</h3>
                     <form onSubmit={handleSubmit}>
@@ -61,11 +73,12 @@ export function Register () {
                     <label htmlFor='password'>Contraseña<br></br>
                     <input type= 'password' id='createPassword' placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
                     </label>
-                   {/* <p id='messagePassword'></p> */}
                     {error && <p id='messageVerificado'>{error}</p>}
                     <button id='buttonUserRegister' onChange={handleChange}> Crear Ususario</button>
-                    <button id='buttonGoogle'> Iniciar con Google</button>
-                    <button id='buttonBackHome'></button>
+                    <div id='containerLink'>
+                    <Link to="/" className="linkBeginning">Volver a inicio</Link>
+                    </div>
+                    {/* <button id='buttonBackHome'></button> */}
                     </form>
                 </section>
             </section>
