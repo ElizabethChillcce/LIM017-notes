@@ -71,12 +71,12 @@ export function Login () {
                 <section className="textContainer">
                     <h3 className="textLogin">Login</h3>
                     <form onSubmit={handleSubmit}>
-                    <label htmlFor='email'>Email<br></br>
-                    <input type='email' data-testid="createEmail" placeholder ='elichil@example.com' name ='email' onChange={handleChange} />
+                    <label htmlFor='email' className="email">Email<br></br>
+                    <input type='email' data-testid="createEmail" className="createEmail" placeholder ='elichil@example.com' name ='email' onChange={handleChange} />
                     </label>
                     <p id='messageEmail'></p><br></br>
-                    <label htmlFor='password'>Contraseña<br></br>
-                    <input type= 'password' data-testid="createPassword" placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
+                    <label htmlFor='password' className="password">Contraseña<br></br>
+                    <input type= 'password' data-testid="createPassword"  className="createPassword" placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
                     </label>
                    {/* <p id='messagePassword'></p> */}
                     {error && <p id='messageVerificado'>{error}</p>}
