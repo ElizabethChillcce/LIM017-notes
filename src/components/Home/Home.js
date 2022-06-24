@@ -2,6 +2,8 @@
 /* import { context } from '../../context/authContext'; */
 /* import { useNavigate } from 'react-router-dom'; */
 import { useAuth } from '../../context/authContext';
+import laptop from '../../images/laptop.png';
+import './Home.css'
 
 export function Home () {
 
@@ -21,10 +23,22 @@ export function Home () {
 
     return <div>
             <section>
-            <h2>Estas en Home {user.displayName || user.email}</h2>
+            <section className='container-title-image-home'>
+            <h2>Yuyarinapaq</h2>
+            <img src={laptop} className="laptop" alt="" />
             <button onClick={handleLogout}>
                 Cerrar sesión
             </button>
+            </section>
+            <p>Hola: {user.displayName || user.email}</p>
+            <p>Escribe tus recordatorios!!</p> 
+            <textarea className="" ></textarea>
+            <div>
+            <details>
+            <summary>Details</summary>
+            Something small enough to escape casual notice.
+            </details>
+            </div>
             </section>
         </div>;
 }

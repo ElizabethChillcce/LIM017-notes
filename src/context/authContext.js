@@ -8,6 +8,8 @@ import { createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../Firebase/config";
 
+/* import { collection, addDoc, getDocs } from "firebase/firestore"; */
+
 export const authContext = createContext();
 
 export const useAuth = () => {
