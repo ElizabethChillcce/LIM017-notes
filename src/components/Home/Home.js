@@ -25,29 +25,33 @@ export function Home () {
     if (loading) return <h2>Actualizando</h2>
 
     return <div>
-            <section className='container-title-image-home'>
+        <section>
+             <header className='container-title-image-home'>
             <h2>Yuyarinapaq</h2>
             <img src={laptop} className="laptop" alt="" />
             <button onClick={handleLogout}>
                 Cerrar sesión
             </button>
-            </section>
+            </header>
             <p>Hola: {user.displayName || user.email}</p>
             <p>Escribe tus recordatorios!!</p>
+            <div id='box-comment'>
             <form>
             <input
             type='text'
             name='title'
             className='title-note'
             placeholder='Título'>
-            </input> <br />
-            <textarea className="" ></textarea>
+            </input>
+            <textarea className="comment-post"></textarea>
+            </form>
+            </div>
             <div>
             <details>
-            <summary>Details</summary>
+            <summary></summary>
             Something small enough to escape casual notice.
             </details>
             </div>
-            </form>
+            </section>
         </div>;
 }
