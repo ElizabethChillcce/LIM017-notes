@@ -1,57 +1,41 @@
-/* import {  useContext } from 'react'; */
-/* import { context } from '../../context/authContext'; */
-/* import { useNavigate } from 'react-router-dom'; */
-import React /*, { useEffect, useState }*/ from "react";
-import { useAuth } from '../../context/authContext';
-/* import { db } from "../../Firebase/config"; */
-/* import { collection, addDoc, getDocs } from "firebase/firestore"; */
-import laptop from '../../images/laptop.png';
-import './Home.css'
+import React, { useEffect, useState } from "react";
+import { HomeNotes } from "./HomeNotes";
+import { db } from "../../Firebase/config";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
-export function Home () {
 
-    const {user, logout, loading} = useAuth();
-    console.log(user);
+export const Home = () => {
 
-    const handleLogout = async () => {
-    try {
-        await logout();
-    }
-    catch (error) {
-        console.log(error(error));
-    }
+    const [text, setText] = useState([]);
+
+    const addOrEditNote = async (noteObject) => {  //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
+        try {
+        const docRef = await addDoc(collection(db, "text"), noteObject);
+        console.log("Document written with ID: ", docRef.id);
+        }
+        catch (e) {
+            console.error('Error adding document: ', e);
+        }
     };
 
-    if (loading) return <h2>Actualizando</h2>
+    const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
+        const querySnapshot = await getDocs(collection(db, "text"))
+        const dataNote = [];
+        /* const dataPost = doc.data(); */
+        querySnapshot.forEach((doc) => {
+            if (doc.data().author === localStorage.getItem('userEmail')) {//doc.data transforma los datos de un objeto de firebase a un objeto de javascript
+            dataNote.push({...doc.data(),  id:doc.id});
+            }
+        })
+        setText(dataNote);
+    };
+
+    useEffect(() => {
+        gettingNotes();
+    }, []);
 
     return <div>
-        <section>
-             <header className='container-title-image-home'>
-            <h2>Yuyarinapaq</h2>
-            <img src={laptop} className="laptop" alt="" />
-            <button onClick={handleLogout}>
-                Cerrar sesión
-            </button>
-            </header>
-            <p>Hola: {user.displayName || user.email}</p>
-            <p>Escribe tus recordatorios!!</p>
-            <div id='box-comment'>
-            <form>
-            <input
-            type='text'
-            name='title'
-            className='title-note'
-            placeholder='Título'>
-            </input>
-            <textarea className="comment-post"></textarea>
-            </form>
-            </div>
-            <div>
-            <details>
-            <summary></summary>
-            Something small enough to escape casual notice.
-            </details>
-            </div>
-            </section>
-        </div>;
-}
+            <HomeNotes addOrEditNote={addOrEditNote} />
+            <p>Bienvenido</p>
+    </div>
+};
