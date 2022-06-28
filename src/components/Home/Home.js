@@ -3,12 +3,12 @@ import { HomeNotes } from "./HomeNotes";
 import { db } from "../../Firebase/config";
 import { collection,
         addDoc,
-        getDocs,
-        /* onSnapshot,
+        onSnapshot,
         query,
-        where, */
+        where,
         /* deleteDoc,
         doc,
+        getDocs,
         orderBy,
         getDocs,
         getDoc,
@@ -17,7 +17,7 @@ import { collection,
 
 export const Home = () => {
 
-    const [text, setText] = useState([]);
+    const [texts, setTexts] = useState([]);
 
     const addOrEditNote = async (noteObject) => {  //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
         try {
@@ -29,32 +29,30 @@ export const Home = () => {
         }
     };
 
-   /*  const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
-        const q = query(collection(db, "text"), where("autor", "==", localStorage.getItem("email")));
+   const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
+        const q = query(collection(db, "text"), where("autor", "==", localStorage.getItem("userEmail")));
         onSnapshot(q, (querySnapshot) => {
             const docs = [];
             querySnapshot.forEach((doc) => {
             docs.push({ ...doc.data(), id:doc.id});
              
             });
-            setText(docs);
+            setTexts(docs);
+            
         });
         };
-      gettingNotes(); */
-      const gettingNotes = async () => {
-       const querySnapshot = await getDocs(collection(db, "text"))
-        const docs = [];
-        querySnapshot.forEach((doc) => {
-            console.log(doc.data())
-            if (doc.data().autor === localStorage.getItem('userEmail')) {//doc.data transforma los datos de un objeto de firebase a un objeto de javascript
-                docs.push({...doc.data(),  id:doc.id});
-            }
-        })
-        setText(docs);
-    };
-
+     /*   setTexts(docs.sort((a, b) =>{
+                console.log(a.date, a.hora)
+                const firstDate = new Date(a.date + a.hora)
+                console.log(firstDate);
+                const secondDate = new Date(b.date + b.hora)
+                
+            }));
+        });*/
+        
     useEffect(() => {
         gettingNotes();
+        console.log("hola");
     }, []);
 
     return (
@@ -63,11 +61,11 @@ export const Home = () => {
             <HomeNotes addOrEditNote={addOrEditNote} />
             </div>
             <div>
-                {text.map(note => (
+                {texts.map(note => (
                    <div className="card mb-1 p-2">
                         <div className="card body">
                             <div>
-                            <h4>{note.name}</h4>
+                            <h4>{note.title}</h4>
                             </div>
                             <p>{note.description}</p>
                             {/* <a href={text.url} target="_blank">Ir al sitio web</a> */}

@@ -17,7 +17,7 @@ export function HomeNotes (props) {
     const [values, setValues] = useState(initialStateValue);
 
     const {user, logout, loading} = useAuth();
-    /* console.log(user); */
+    console.log(user);
 
     const handleLogout = async () => {
     try {
