@@ -5,8 +5,19 @@ import './Home.css'
 
 export function HomeNotes (props) {
 
+    const initialStateValue = {
+        title: '',
+        description: '',
+        /* id: auth.currentUser.uid,
+        photo: auth.currentUser.photoURL, */
+        autor: localStorage.getItem('userEmail'),
+        date: new Date().toLocaleDateString('es'),
+        hora: new Date().toLocaleTimeString('es'),
+    }
+    const [values, setValues] = useState(initialStateValue);
+
     const {user, logout, loading} = useAuth();
-    console.log(user);
+    /* console.log(user); */
 
     const handleLogout = async () => {
     try {
@@ -18,27 +29,19 @@ export function HomeNotes (props) {
     };
     if (loading) return <h2>Actualizando</h2>
 
-    const initialStateValue = {
-        title: '',
-        description: '',
-        /* id: auth.currentUser.uid,
-        photo: auth.currentUser.photoURL, */
-        autor: localStorage.getItem('userEmail'),
-        date: new Date().toLocaleDateString('es'),
-        hora: new Date().toLocaleTimeString('es'),
-    }
+    
 
-     const [values, setValues] = useState(initialStateValue);
+     
 
      const handleInputChange = e => {
         const {name, value} = e.target;
-        setValues({...values, [name]: value})
+        setValues({...values, [name]: value});
         };
 
     const handleSubmit = e => {
         e.preventDefault();
         props.addOrEditNote(values);
-        setValues({...initialStateValue})
+        setValues({ ...initialStateValue })
     };
 
     return <div>
@@ -47,7 +50,7 @@ export function HomeNotes (props) {
                 <h2>Yuyarinapaq</h2>
                 <img src={laptop} className="laptop" alt="" />
                 <button onClick={handleLogout}>
-                Cerrar sesión
+                Cerrar sesión {/* exit logout */}
                 </button>
             </header>
             <p>Hola: {user.displayName || user.email}</p>
@@ -72,18 +75,12 @@ export function HomeNotes (props) {
                     <button>
                         Guardar
                     </button>
+                    <button>
+                    <i className="fa-solid fa-trash-can"></i>  {/* icono del tachito */}
+                    </button>
                 </form>
             </div>
             <div>
-            <details>
-            <summary></summary>
-            Something small enough to escape casual notice.
-            </details>
-            </div>
-        </section>
-        <section className='post-Publish'>
-            <div className='post-separacion'>
-
             </div>
         </section>
     </div>;

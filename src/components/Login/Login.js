@@ -3,7 +3,8 @@ import laptop from '../../images/laptop.png';
 import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
- 
+import { Link } from 'react-router-dom';
+
 export function Login () {
     const [user, setUser] = useState ({
         email: '',
@@ -78,15 +79,16 @@ export function Login () {
                     <label htmlFor='password' className="password">Contraseña<br></br>
                     <input type= 'password' data-testid="createPassword"  className="createPassword" placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
                     </label>
-                   {/* <p id='messagePassword'></p> */}
                     {error && <p id='messageVerificado'>{error}</p>}
                     <button id='getInto' onChange={handleChange}> Iniciar sesión</button>
                     <div id='registerLink'>
-                    <p>¿No tienes cuenta? <a href='/register'><span className='link-span'><strong>Regístrate</strong></span></a></p>
+                    <p className="to-register">¿No tienes cuenta? <a href='/register'><span className='link-span'><strong>Regístrate</strong></span></a></p>
                     </div>
-                     <button id='buttonBackHome' className='buttonHome'></button>
                     </form>
-                    <button onClick={handleGoogle} id='buttonGoogle'> Iniciar con Google</button>
+                    <button onClick={handleGoogle} id='buttonGoogle'> Iniciar con  <i className="fa-brands fa-google"></i></button>
+                    <div id='to-welcome'>
+                    <Link to="/" className="to-welcome"></Link><i className="fa-solid fa-backward"></i>
+                    </div>
                 </section>
             </section>
             </div>;

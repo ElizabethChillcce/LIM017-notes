@@ -10,7 +10,7 @@ body {
     align-items: center;
     margin-left: auto;
     margin-right:auto;
-    padding-top: 5%;  /* esto se aumento */
+    padding-top: 0%;  /* esto se aumento */
 }
 .title-main {
     text-align: center;
@@ -43,7 +43,6 @@ p {
     margin-top: 1%; /* esto se aumento */
 }
 .logo-welcome{
-    /* max-width: 30%; */
     width:40%;
     height:40%;
 }
@@ -75,13 +74,8 @@ p {
 }
 @media only screen and (min-width: 768px) {
      #welcomePage {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-left: auto;
         margin-right:auto;
-        max-width: 300px; /* esto me ayudarà a para q no se ponga grande ne la pantalla. */
+        max-width: 350em; /* esto me ayudarà a para q no se ponga grande ne la pantalla. */
     }
     .logo-welcome {
         width: 70%;
@@ -89,9 +83,6 @@ p {
         margin-bottom: 5px;
     }
     .title-spanish {
-        text-align: center;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-weight: bold;
         font-size: 50px; /* esto recien se hizo */
         margin:5px;
         margin-top: 8px;
@@ -106,28 +97,6 @@ p {
         font-family: 'Roboto', sans-serif;
         margin-top: 1%; /* esto se aumento */
     }
-    /*
-    .title-main {
-        text-align: center;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-weight:bold;
-        font-size: 60px;
-        margin:5px;
-        margin-top: 30px;
-        color:rgba(27, 26, 26, 0.938);
-        text-shadow:  #70BF5A ;
-        text-shadow: -1px 0 #59AFCA, 0 1px #59AFCA, 1px 0 #59AFCA, 0 -1px #59AFCA, -1px 1px 0 #59AFCA, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA;
-    }
-    p {
-        color: whitesmoke;
-        font-size: 20px;
-        font-family: 'Roboto', sans-serif;
-    }
-    .logo-welcome{
-        width:40%;
-        height:40%;
-    }
-     */
      .containerGetInto, .containerLogin {
         width: 230px;
         height: 60px;
@@ -153,5 +122,27 @@ p {
         font-size: 33px;
         font-weight: bold;
         font-family: 'Roboto', sans-serif;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    #welcomePage {
+        max-width: 20em;
+    }
+    .title-spanish {
+        font-size: 40px;
+    }
+    p {
+        font-size: 22px;
+    }
+    .logo-welcome {
+        max-width: 800%;
+        width: 150%;
+    }
+    .containerGetInto, .containerLogin {
+        width: 12em;
+        height: 2em;
+    }
+    .linkRegister, .linkLogin {
+        font-size: 23px;
     }
 }

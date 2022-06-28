@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { HomeNotes } from "./HomeNotes";
 import { db } from "../../Firebase/config";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection,
+        addDoc,
+        getDocs,
+        /* onSnapshot,
+        query,
+        where, */
+        /* deleteDoc,
+        doc,
+        orderBy,
+        getDocs,
+        getDoc,
+        updateDoc, */} from "firebase/firestore";
 
 
 export const Home = () => {
@@ -18,24 +29,51 @@ export const Home = () => {
         }
     };
 
-    const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
-        const querySnapshot = await getDocs(collection(db, "text"))
-        const dataNote = [];
-        /* const dataPost = doc.data(); */
+   /*  const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
+        const q = query(collection(db, "text"), where("autor", "==", localStorage.getItem("email")));
+        onSnapshot(q, (querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+            docs.push({ ...doc.data(), id:doc.id});
+             
+            });
+            setText(docs);
+        });
+        };
+      gettingNotes(); */
+      const gettingNotes = async () => {
+       const querySnapshot = await getDocs(collection(db, "text"))
+        const docs = [];
         querySnapshot.forEach((doc) => {
-            if (doc.data().author === localStorage.getItem('userEmail')) {//doc.data transforma los datos de un objeto de firebase a un objeto de javascript
-            dataNote.push({...doc.data(),  id:doc.id});
+            console.log(doc.data())
+            if (doc.data().autor === localStorage.getItem('userEmail')) {//doc.data transforma los datos de un objeto de firebase a un objeto de javascript
+                docs.push({...doc.data(),  id:doc.id});
             }
         })
-        setText(dataNote);
+        setText(docs);
     };
 
     useEffect(() => {
         gettingNotes();
     }, []);
 
-    return <div>
+    return (
+        <div>
+            <div className="col-md-4 p-2 ">
             <HomeNotes addOrEditNote={addOrEditNote} />
-            <p>Bienvenido</p>
-    </div>
+            </div>
+            <div>
+                {text.map(note => (
+                   <div className="card mb-1 p-2">
+                        <div className="card body">
+                            <div>
+                            <h4>{note.name}</h4>
+                            </div>
+                            <p>{note.description}</p>
+                            {/* <a href={text.url} target="_blank">Ir al sitio web</a> */}
+                        </div>
+                    </div>
+                ))}
+            </div>
+    </div>)
 };
