@@ -50,6 +50,15 @@
     width:85%;
     margin-bottom: 5%;
   }
+  .post-Notes{
+    border: 1px solid #ffffff;
+    width:60%;
+    height: 60%;
+    display: block;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 15px;
+  }
 @media only screen and (min-width: 768px) {
 #box-comment {
     width: 70%;

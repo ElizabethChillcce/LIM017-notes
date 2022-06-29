@@ -11,8 +11,9 @@ export function HomeNotes (props) {
         /* id: auth.currentUser.uid,
         photo: auth.currentUser.photoURL, */
         autor: localStorage.getItem('userEmail'),
-        date: new Date().toLocaleDateString('es'),
-        hora: new Date().toLocaleTimeString('es'),
+        timeStamp: new Date(),
+        /* date: new Date().toLocaleDateString('es'), */
+        /* hora: new Date().toLocaleTimeString('es'), */
     }
     const [values, setValues] = useState(initialStateValue);
 
@@ -56,7 +57,7 @@ export function HomeNotes (props) {
             <p>Hola: {user.displayName || user.email}</p>
             <p>Escribe tus recordatorios!!</p>
             <div id='box-comment'>
-                <form className="form-for-notes" onSubmit={handleSubmit}>
+                <form className="form-for-notes">
                     <input
                     type='text'
                     name='title'
@@ -72,7 +73,7 @@ export function HomeNotes (props) {
                     onChange={handleInputChange}
                     value={values.description}
                     ></textarea>
-                    <button>
+                    <button onClick={handleSubmit}>
                         Guardar
                     </button>
                     <button>

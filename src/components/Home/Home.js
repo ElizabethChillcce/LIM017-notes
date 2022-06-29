@@ -5,8 +5,8 @@ import { collection,
         addDoc,
         onSnapshot,
         query,
-        where,
-        /* deleteDoc,
+         /* where,
+       deleteDoc,
         doc,
         getDocs,
         orderBy,
@@ -30,26 +30,27 @@ export const Home = () => {
     };
 
    const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
-        const q = query(collection(db, "text"), where("autor", "==", localStorage.getItem("userEmail")));
+        const q = query(collection(db, "text").ordeBy("timeStamp")/* , where("autor", "==", localStorage.getItem("userEmail")) */);
         onSnapshot(q, (querySnapshot) => {
             const docs = [];
             querySnapshot.forEach((doc) => {
             docs.push({ ...doc.data(), id:doc.id});
              
             });
-            setTexts(docs);
+           setTexts(docs);
             
         });
         };
-     /*   setTexts(docs.sort((a, b) =>{
-                console.log(a.date, a.hora)
-                const firstDate = new Date(a.date + a.hora)
+        /* setTexts(docs.sort((a, b) =>{
+                console.log(a)
+                const firstDate = new Date(a.date)
                 console.log(firstDate);
                 const secondDate = new Date(b.date + b.hora)
                 
             }));
-        });*/
-        
+        });
+    } */
+
     useEffect(() => {
         gettingNotes();
         console.log("hola");
@@ -57,10 +58,10 @@ export const Home = () => {
 
     return (
         <div>
-            <div className="col-md-4 p-2 ">
+            <div className=" ">
             <HomeNotes addOrEditNote={addOrEditNote} />
             </div>
-            <div>
+            <div className="post-Notes">
                 {texts.map(note => (
                    <div className="card mb-1 p-2">
                         <div className="card body">
@@ -74,4 +75,4 @@ export const Home = () => {
                 ))}
             </div>
     </div>)
-};
+   }
