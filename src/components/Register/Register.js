@@ -60,7 +60,7 @@ export function Register () {
                     <h2 className="titleMain">YUYARINAPAQ</h2>
                     <img src={laptop} className="laptop" />
                 </section>
-                <section className="textContainer">
+                <section className="textContainerRegister">
                     <h3 className="textRegister">Registro</h3>
                     <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Nombre de usuario<br></br>
@@ -78,7 +78,6 @@ export function Register () {
                     <div id='containerLink'>
                     <Link to="/" className="linkBeginning">Volver a inicio</Link>
                     </div>
-                    {/* <button id='buttonBackHome'></button> */}
                     </form>
                 </section>
             </section>
