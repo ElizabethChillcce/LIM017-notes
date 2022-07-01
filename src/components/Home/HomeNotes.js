@@ -18,7 +18,7 @@ export function HomeNotes (props) {
     const [values, setValues] = useState(initialStateValue);
 
     const {user, logout, loading} = useAuth();
-    console.log(user);
+
 
     const handleLogout = async () => {
     try {
@@ -66,6 +66,7 @@ export function HomeNotes (props) {
                     onChange={handleInputChange}
                     value={values.title}
                     />
+                    {/* <input type="file"/> */}
                     <textarea
                     className="comment-post"
                     name='description'

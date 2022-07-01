@@ -5,8 +5,8 @@ import { collection,
         addDoc,
         onSnapshot,
         query,
-         /* where,
-       deleteDoc,
+        /* where,
+        deleteDoc,
         doc,
         getDocs,
         orderBy,
@@ -21,7 +21,7 @@ export const Home = () => {
 
     const addOrEditNote = async (noteObject) => {  //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
         try {
-        const docRef = await addDoc(collection(db, "text"), noteObject);
+        const docRef = await addDoc(collection(db, "notes"), noteObject);
         console.log("Document written with ID: ", docRef.id);
         }
         catch (e) {
@@ -30,15 +30,13 @@ export const Home = () => {
     };
 
    const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
-        const q = query(collection(db, "text").ordeBy("timeStamp")/* , where("autor", "==", localStorage.getItem("userEmail")) */);
+        const q = query(collection(db, "notes")/* , where("autor", "==", localStorage.getItem("userEmail")) */);
         onSnapshot(q, (querySnapshot) => {
             const docs = [];
             querySnapshot.forEach((doc) => {
             docs.push({ ...doc.data(), id:doc.id});
-             
             });
-           setTexts(docs);
-            
+            setTexts(docs);
         });
         };
         /* setTexts(docs.sort((a, b) =>{
@@ -46,7 +44,6 @@ export const Home = () => {
                 const firstDate = new Date(a.date)
                 console.log(firstDate);
                 const secondDate = new Date(b.date + b.hora)
-                
             }));
         });
     } */
@@ -63,7 +60,7 @@ export const Home = () => {
             </div>
             <div className="post-Notes">
                 {texts.map(note => (
-                   <div className="card mb-1 p-2">
+                    <div className="card mb-1 p-2">
                         <div className="card body">
                             <div>
                             <h4>{note.title}</h4>
@@ -71,8 +68,10 @@ export const Home = () => {
                             <p>{note.description}</p>
                             {/* <a href={text.url} target="_blank">Ir al sitio web</a> */}
                         </div>
+                        <button onClick={handleSubmit}>Editar</button>
+                        <button>Borrar</button>
                     </div>
-                ))}
+                    ))}
             </div>
     </div>)
-   }
+    }
