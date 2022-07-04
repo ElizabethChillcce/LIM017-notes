@@ -50,8 +50,8 @@ export function HomeNotes (props) {
             <header className='container-title-image-home'>
                 <h2>Yuyarinapaq</h2>
                 <img src={laptop} className="laptop" alt="" />
-                <button onClick={handleLogout}>
-                Cerrar sesión {/* exit logout */}
+                <button onClick={handleLogout} className="btn-sign-off">
+                <i className="fa-solid fa-right-from-bracket" id="icono-sign-off"></i>
                 </button>
             </header>
             <p>Hola: {user.displayName || user.email}</p>
@@ -67,22 +67,23 @@ export function HomeNotes (props) {
                     value={values.title}
                     />
                     {/* <input type="file"/> */}
-                    <textarea
+                    <p><textarea
                     className="comment-post"
                     name='description'
                     placeholder='Escribe tus recordatorios'
                     onChange={handleInputChange}
                     value={values.description}
-                    ></textarea>
-                    <button onClick={handleSubmit}>
-                        Guardar
+                    ></textarea></p>
+                    <button
+                    onClick={handleSubmit}>
+                    Guardar
                     </button>
-                    <button>
+                    <button
+                    type="reset"
+                    className='deleteCamp'>
                     <i className="fa-solid fa-trash-can"></i>  {/* icono del tachito */}
                     </button>
                 </form>
-            </div>
-            <div>
             </div>
         </section>
     </div>;

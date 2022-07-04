@@ -5,6 +5,17 @@
     justify-content: center;
     margin-top: 1%; /* esto recièn se hizo */
     margin-bottom: 3%; /* esto recièn se hizo */
+
+}
+.btn-sign-off {
+  filter: brightness(1.1); /* sirve para quitar el fondo del icono */
+  mix-blend-mode: multiply; /* sirve para quitar el fondo del icono */
+  border: none;
+}
+#icono-sign-off{
+ background-color: white;
+ width: 50%;
+ height: 50%;
 }
 #box-comment{
     border-radius: 10px;

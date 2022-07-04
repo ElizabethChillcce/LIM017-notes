@@ -1,57 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { HomeNotes } from "./HomeNotes";
-import { db } from "../../Firebase/config";
-import { collection,
-        addDoc,
-        onSnapshot,
-        query,
-        /* where,
-        deleteDoc,
-        doc,
-        getDocs,
-        orderBy,
-        getDocs,
-        getDoc,
-        updateDoc, */} from "firebase/firestore";
+/* import { db } from "../../Firebase/config"; */
+
+import { addOrEditNote,
+    gettingNotes,
+    deleteNote,
+} from "../../context/noteFirestore";
 
 
-export const Home = () => {
 
-    const [texts, setTexts] = useState([]);
 
-    const addOrEditNote = async (noteObject) => {  //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
-        try {
-        const docRef = await addDoc(collection(db, "notes"), noteObject);
-        console.log("Document written with ID: ", docRef.id);
-        }
-        catch (e) {
-            console.error('Error adding document: ', e);
-        }
-    };
+export const Home = (props) => {
 
-   const gettingNotes = async () => {   // para recuperar todos los documentos de una colección
-        const q = query(collection(db, "notes")/* , where("autor", "==", localStorage.getItem("userEmail")) */);
+    const [notes, setNotes] = useState([]);
+
+
+   /* const gettingNotes = async () => {
+        const q = query(collection(db, "notes"));
         onSnapshot(q, (querySnapshot) => {
             const docs = [];
             querySnapshot.forEach((doc) => {
             docs.push({ ...doc.data(), id:doc.id});
             });
-            setTexts(docs);
+            setNotes(docs);
         });
-        };
-        /* setTexts(docs.sort((a, b) =>{
-                console.log(a)
-                const firstDate = new Date(a.date)
-                console.log(firstDate);
-                const secondDate = new Date(b.date + b.hora)
-            }));
-        });
-    } */
+        }; */
 
-    useEffect(() => {
+useEffect(() => {
         gettingNotes();
         console.log("hola");
+        
     }, []);
+
+    const removeNote = async () => {
+      await deleteNote(note.id);
+    }
 
     return (
         <div>
@@ -59,17 +42,18 @@ export const Home = () => {
             <HomeNotes addOrEditNote={addOrEditNote} />
             </div>
             <div className="post-Notes">
-                {texts.map(note => (
-                    <div className="card mb-1 p-2">
+                {notes.map(note => (
+                    <div className="card mb-1 p-2" id="note.id">
                         <div className="card body">
                             <div>
                             <h4>{note.title}</h4>
                             </div>
+                            <div>
                             <p>{note.description}</p>
-                            {/* <a href={text.url} target="_blank">Ir al sitio web</a> */}
+                            </div>
                         </div>
-                        <button onClick={handleSubmit}>Editar</button>
-                        <button>Borrar</button>
+                        {/* <button onClick={handleSubmit}>Editar</button> */}
+                        <button onclick={removeNote}>Borrar</button>
                     </div>
                     ))}
             </div>
