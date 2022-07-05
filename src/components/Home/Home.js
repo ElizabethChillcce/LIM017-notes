@@ -14,7 +14,7 @@ export const Home = (props) => {
 
     const [notes, setNotes] = useState([]);
 
-
+   
    /* const gettingNotes = async () => {
         const q = query(collection(db, "notes"));
         onSnapshot(q, (querySnapshot) => {
@@ -25,15 +25,20 @@ export const Home = (props) => {
             setNotes(docs);
         });
         }; */
+        const getNotes = async () => {
+           await gettingNotes().then((response) => {
+                console.log(response);
+                setNotes(response);
+            })
+        }
 
 useEffect(() => {
-        gettingNotes();
+    getNotes();
         console.log("hola");
-        
     }, []);
 
-    const removeNote = async () => {
-      await deleteNote(note.id);
+    const removeNote = async (id) => {
+      await deleteNote(id);
     }
 
     return (
@@ -42,8 +47,8 @@ useEffect(() => {
             <HomeNotes addOrEditNote={addOrEditNote} />
             </div>
             <div className="post-Notes">
-                {notes.map(note => (
-                    <div className="card mb-1 p-2" id="note.id">
+            {notes.map((note,index) => (
+                    <div  key={index} className="card mb-1 p-2">
                         <div className="card body">
                             <div>
                             <h4>{note.title}</h4>
@@ -53,7 +58,7 @@ useEffect(() => {
                             </div>
                         </div>
                         {/* <button onClick={handleSubmit}>Editar</button> */}
-                        <button onclick={removeNote}>Borrar</button>
+                        <button onClick={removeNote(note.id)}>Borrar</button>
                     </div>
                     ))}
             </div>
