@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useAuth } from '../../context/authContext';
 import laptop from '../../images/laptop.png';
 import './Home.css'
+import { addOrEditNote } from '../../context/noteFirestore';
 
-export function HomeNotes (props) {
+export function HomeNotes ({ getNotes }) {
+
 
     const initialStateValue = {
         title: '',
@@ -41,8 +43,12 @@ export function HomeNotes (props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.addOrEditNote(values);
+        addOrEditNote(values).then((response) => {
+        console.log(response)
         setValues({ ...initialStateValue })
+        getNotes();   //saber q fue exitosa guardar la nota
+        })
+        
     };
 
     return <div>

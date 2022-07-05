@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HomeNotes } from "./HomeNotes";
 /* import { db } from "../../Firebase/config"; */
 
-import { addOrEditNote,
+import {
     gettingNotes,
     deleteNote,
 } from "../../context/noteFirestore";
@@ -39,16 +39,17 @@ useEffect(() => {
 
     const removeNote = async (id) => {
       await deleteNote(id);
+      /* return props.removeNote */
     }
 
     return (
         <div>
             <div className=" ">
-            <HomeNotes addOrEditNote={addOrEditNote} />
+            <HomeNotes getNotes={getNotes}/>
             </div>
             <div className="post-Notes">
-            {notes.map((note,index) => (
-                    <div  key={index} className="card mb-1 p-2">
+            {notes.map((note) => (
+                    <div  key={note.id} className="card mb-1 p-2">
                         <div className="card body">
                             <div>
                             <h4>{note.title}</h4>
@@ -58,7 +59,7 @@ useEffect(() => {
                             </div>
                         </div>
                         {/* <button onClick={handleSubmit}>Editar</button> */}
-                        <button onClick={removeNote(note.id)}>Borrar</button>
+                        <button onClick={() => removeNote(note.id)}>Borrar</button>
                     </div>
                     ))}
             </div>
