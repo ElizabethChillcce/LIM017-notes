@@ -32,8 +32,14 @@ export const watchNotes = async () => {
   const q = query(collection(db, "notes"));
 
   const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((docs) => {
-    notes.push(docs.data());
+  querySnapshot.forEach((doc) => {
+    const objetoDocs = doc.data()   //añadiendo al objeto doc.data la propiedad id con su valor atravez de lo ...
+    const idValue = {
+      id: doc.id,
+      ...objetoDocs,
+  }
+    notes.push(idValue);
+    console.log(idValue)
   });
   return notes;
 };

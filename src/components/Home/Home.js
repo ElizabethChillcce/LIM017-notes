@@ -38,6 +38,7 @@ useEffect(() => {
     }, []);
 
     const removeNote = async (id) => {
+        console.log(id)
       await deleteNote(id);
       /* return props.removeNote */
     }

@@ -74,8 +74,8 @@
     font-family: inherit;
 }
 #getInto {
-    /* background-color:#4C80CA */
-    background-color: rgb(230, 152, 8);
+    background-color: #4C80CA;
+    /* background-color: rgb(230, 152, 8); */
     border-radius: 10px;
     display: flex;
     border: none;

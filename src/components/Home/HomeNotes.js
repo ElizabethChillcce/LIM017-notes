@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useAuth } from '../../context/authContext';
+import { addOrEditNote } from '../../context/noteFirestore';
 /* import laptop from '../../images/laptop.png'; */
 import './Home.css'
-import { addOrEditNote } from '../../context/noteFirestore';
+import video from '../../video/logo-teclas.mp4'
 
 export function HomeNotes ({ getNotes }) {
 
@@ -54,6 +55,7 @@ export function HomeNotes ({ getNotes }) {
     return <div>
         <section>
             <header className='container-title-image-home'>
+                <video src={video} type="video/mp4" className="logo-video-register" with='40px' autoPlay  muted loop> </video>
                 {/* <img src={laptop} className="laptop" alt="" /> */}
                 <h2 className="title-form">Yuyarinapaq</h2>
                 <button onClick={handleLogout} className="btn-sign-off">
