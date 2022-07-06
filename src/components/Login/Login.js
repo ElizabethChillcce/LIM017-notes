@@ -1,9 +1,10 @@
 import './Login.css'
-import laptop from '../../images/laptop.png';
+/* import laptop from '../../images/laptop.png'; */
 import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import video from '../../video/logo-teclas.mp4'
 
 export function Login () {
     const [user, setUser] = useState ({
@@ -65,12 +66,16 @@ export function Login () {
 
         return <div>
             <section>
-                <section id="containerTitleImage">
-                    <h2 className="titleMain">YUYARINAPAQ</h2>
-                    <img src={laptop} className="laptop" alt="" />
+                <section>
+                    <div id="container-title-image">
+                    <h2 className="title-register-main">YUYARINAPAQ</h2>
+                    {/* <img src={laptop} className="laptop" alt="" /> */}
+                    <video src={video} type="video/mp4" className="logo-video-register" with='40px' autoPlay  muted loop> </video>
+                    </div>
+                    <h3 className="title-spanish-main">Recordatorio</h3>
                 </section>
-                <section className="textContainer">
-                    <h3 className="textLogin">Login</h3>
+                <section className="text-container">
+                    <h3 className="text-login">Login</h3>
                     <form onSubmit={handleSubmit}>
                     <label htmlFor='email' className="email">Email<br></br>
                     <input type='email' data-testid="createEmail" className="createEmail" placeholder ='elichil@example.com' name ='email' onChange={handleChange} />

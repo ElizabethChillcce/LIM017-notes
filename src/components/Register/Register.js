@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './Register.css'
-import laptop from '../../images/laptop.png';
+/* import laptop from '../../images/laptop.png'; */
 import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import video from '../../video/logo-teclas.mp4'
  
 export function Register () {
     const [user, setUser] = useState ({
@@ -56,9 +57,13 @@ export function Register () {
 
         return <div>
             <section>
-                <section id="containerTitleImage">
-                    <h2 className="titleMain">YUYARINAPAQ</h2>
-                    <img src={laptop} className="laptop" />
+                <section>
+                    <div id="container-title-image">
+                        <h2 className="title-register-main">YUYARINAPAQ</h2>
+                        {/* <img src={laptop} className="laptop" /> */}
+                        <video src={video} type="video/mp4" className="logo-video-register" with='40px' autoPlay  muted loop> </video>
+                    </div>
+                        <h3 className="title-spanish-main">Recordatorio</h3>
                 </section>
                 <section className="textContainerRegister">
                     <h3 className="textRegister">Registro</h3>

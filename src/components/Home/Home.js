@@ -3,7 +3,7 @@ import { HomeNotes } from "./HomeNotes";
 /* import { db } from "../../Firebase/config"; */
 
 import {
-    gettingNotes,
+    watchNotes,
     deleteNote,
 } from "../../context/noteFirestore";
 
@@ -26,7 +26,7 @@ export const Home = (props) => {
         });
         }; */
         const getNotes = async () => {
-           await gettingNotes().then((response) => {
+           await watchNotes().then((response) => {
                 console.log(response);
                 setNotes(response);
             })
@@ -44,7 +44,7 @@ useEffect(() => {
 
     return (
         <div>
-            <div className=" ">
+            <div>
             <HomeNotes getNotes={getNotes}/>
             </div>
             <div className="post-Notes">

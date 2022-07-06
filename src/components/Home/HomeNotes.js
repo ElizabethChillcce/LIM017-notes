@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from '../../context/authContext';
-import laptop from '../../images/laptop.png';
+/* import laptop from '../../images/laptop.png'; */
 import './Home.css'
 import { addOrEditNote } from '../../context/noteFirestore';
 
@@ -54,8 +54,8 @@ export function HomeNotes ({ getNotes }) {
     return <div>
         <section>
             <header className='container-title-image-home'>
-                <img src={laptop} className="laptop" alt="" />
-                <h2>Yuyarinapaq</h2>
+                {/* <img src={laptop} className="laptop" alt="" /> */}
+                <h2 className="title-form">Yuyarinapaq</h2>
                 <button onClick={handleLogout} className="btn-sign-off">
                 <i className="fa-solid fa-right-from-bracket" id="icono-sign-off"></i>
                 </button>

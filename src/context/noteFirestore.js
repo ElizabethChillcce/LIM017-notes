@@ -26,7 +26,7 @@ export const addOrEditNote = async (noteObject) => {
   }
 };
 
-export const gettingNotes = async () => {
+export const watchNotes = async () => {
   // para recuperar todos los documentos de una colección
   const notes = [];
   const q = query(collection(db, "notes"));
