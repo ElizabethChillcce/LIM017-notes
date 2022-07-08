@@ -80,6 +80,21 @@ i {
     margin: auto;
     margin-top: 15px;
   }
+
+  /* contenedor de post notes */
+  .container-post-title{
+     color: white;
+     border: 1px solid;
+     width: 90%;
+     display: flex;
+     align-content: center;
+     align-items: center;
+     height: 3em;
+  }
+  .post-title{
+    font-size: 30px;
+  }
+
 @media only screen and (min-width: 768px) {
  #box-comment {
     width: 70%;

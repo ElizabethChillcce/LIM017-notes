@@ -5,6 +5,7 @@ import { HomeNotes } from "./HomeNotes";
 import {
     watchNotes,
     deleteNote,
+    watchNotesDos,
 } from "../../context/noteFirestore";
 
 
@@ -14,18 +15,8 @@ export const Home = (props) => {
 
     const [notes, setNotes] = useState([]);
 
-   
-   /* const gettingNotes = async () => {
-        const q = query(collection(db, "notes"));
-        onSnapshot(q, (querySnapshot) => {
-            const docs = [];
-            querySnapshot.forEach((doc) => {
-            docs.push({ ...doc.data(), id:doc.id});
-            });
-            setNotes(docs);
-        });
-        }; */
         const getNotes = async () => {
+            debugger
            await watchNotes().then((response) => {
                 console.log(response);
                 setNotes(response);
@@ -33,33 +24,37 @@ export const Home = (props) => {
         }
 
 useEffect(() => {
-    getNotes();
+    watchNotesDos(setNotes); //actualizando con el useStade "setNotes" pasandolo como un callback para ello usando la funcion watchNotesDos q tiene onSnapshot
         console.log("hola");
     }, []);
 
     const removeNote = async (id) => {
         console.log(id)
+        debugger
       await deleteNote(id);
+      /* getNotes(); */ //llamndo a una funcion para q actualize el interfaz
       /* return props.removeNote */
     }
 
     return (
         <div>
             <div>
-            <HomeNotes getNotes={getNotes}/>
+            <HomeNotes getNotes={getNotes}/>   {/* compartiendo con el hijo un props  getNotes*/}
             </div>
             <div className="post-Notes">
             {notes.map((note) => (
                     <div  key={note.id} className="card mb-1 p-2">
                         <div className="card body">
-                            <div>
-                            <h4>{note.title}</h4>
+                            <p>Fecha: {/* {note.timeStamp} */} </p>
+                            <div className="container-post-title">
+                                <h4 className="post-title">{note.title}</h4>
                             </div>
                             <div>
-                            <p>{note.description}</p>
+                                <p>{note.description}</p>
                             </div>
                         </div>
-                        {/* <button onClick={handleSubmit}>Editar</button> */}
+                        <button /* onClick={handleSubmit} */>Editar</button>
+                        <button className='refresh' >Actualizar</button>
                         <button onClick={() => removeNote(note.id)}>Borrar</button>
                     </div>
                     ))}

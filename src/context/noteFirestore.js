@@ -3,7 +3,7 @@ import { db } from "../Firebase/config"; //base de datos
 import {
   collection,
   addDoc, //se añade un documento
-  //onSnapshot,
+  onSnapshot,
   query,
   deleteDoc,
   doc,
@@ -11,7 +11,6 @@ import {
 } from "firebase/firestore";
 /* where,
     orderBy,
-    getDocs,
     getDoc,
     updateDoc, */
 
@@ -25,6 +24,31 @@ export const addOrEditNote = async (noteObject) => {
     console.error("Error adding document: ", e);
   }
 };
+
+/* const q = query(collection(db, "cities"), where("state", "==", "CA"));
+const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  const cities = [];
+  querySnapshot.forEach((doc) => {
+      cities.push(doc.data().name);
+  });
+  console.log("Current cities in CA: ", cities.join(", "));
+}); */
+export const watchNotesDos = (setNotesCallback) => {
+ const queryDocs = query(collection(db, "notes"));
+ onSnapshot(queryDocs, (querySnapshot) =>{
+  debugger
+  const notes = [];
+  querySnapshot.forEach((doc) => {
+    const objetoDocs = doc.data()   //añadiendo al objeto doc.data la propiedad id con su valor atravez de lo ...
+      const idValue = {
+      id: doc.id,
+      ...objetoDocs,
+    }
+    notes.push(idValue);
+  })
+  setNotesCallback(notes);
+ })
+}
 
 export const watchNotes = async () => {
   // para recuperar todos los documentos de una colección

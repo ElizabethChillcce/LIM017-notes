@@ -33,11 +33,7 @@ export function HomeNotes ({ getNotes }) {
     };
     if (loading) return <h2>Actualizando</h2>
 
-    
-
-     
-
-     const handleInputChange = e => {
+    const handleInputChange = e => {
         const {name, value} = e.target;
         setValues({...values, [name]: value});
         };
@@ -47,9 +43,8 @@ export function HomeNotes ({ getNotes }) {
         addOrEditNote(values).then((response) => {
         console.log(response)
         setValues({ ...initialStateValue })
-        getNotes();   //saber q fue exitosa guardar la nota
+        /* getNotes(); */   //saber q fue exitosa guardar la nota
         })
-        
     };
 
     return <div>
