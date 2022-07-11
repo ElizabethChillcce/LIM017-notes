@@ -8,31 +8,21 @@ import {
   deleteDoc,
   doc,
   getDocs,
+  getDoc,
 } from "firebase/firestore";
-/* where,
-    orderBy,
-    getDoc,
-    updateDoc, */
 
+ //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
 export const addOrEditNote = async (noteObject) => {
-  //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
   try {
     const docRef = await addDoc(collection(db, "notes"), noteObject);
     console.log("Document written with ID: ", docRef.id);
-    return docRef; //retornando una promesa
+    return docRef;
   } catch (e) {
     console.error("Error adding document: ", e);
   }
 };
 
-/* const q = query(collection(db, "cities"), where("state", "==", "CA"));
-const unsubscribe = onSnapshot(q, (querySnapshot) => {
-  const cities = [];
-  querySnapshot.forEach((doc) => {
-      cities.push(doc.data().name);
-  });
-  console.log("Current cities in CA: ", cities.join(", "));
-}); */
+//funciòn q utiliza onSnapshot
 export const watchNotesDos = (setNotesCallback) => {
  const queryDocs = query(collection(db, "notes"));
  onSnapshot(queryDocs, (querySnapshot) =>{
@@ -50,8 +40,8 @@ export const watchNotesDos = (setNotesCallback) => {
  })
 }
 
+// para recuperar todos los documentos de una colección
 export const watchNotes = async () => {
-  // para recuperar todos los documentos de una colección
   const notes = [];
   const q = query(collection(db, "notes"));
 
@@ -72,3 +62,14 @@ export const watchNotes = async () => {
 export const deleteNote = async (id) => {
   await deleteDoc(doc(db, "notes", id));
 };
+
+//funcion para editar las notas
+export const getNoteById = async (id) => {
+  try {
+    const docRef = doc(db, "notes", id)
+    const docSnap = await getDoc(docRef)
+    return docSnap.data()
+  } catch(error){
+    console.log(error);
+  }
+}

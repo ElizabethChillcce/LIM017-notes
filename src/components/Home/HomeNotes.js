@@ -33,6 +33,7 @@ export function HomeNotes ({ getNotes }) {
     };
     if (loading) return <h2>Actualizando</h2>
 
+    //funcion para capturar inputs
     const handleInputChange = e => {
         const {name, value} = e.target;
         setValues({...values, [name]: value});
@@ -43,7 +44,7 @@ export function HomeNotes ({ getNotes }) {
         addOrEditNote(values).then((response) => {
         console.log(response)
         setValues({ ...initialStateValue })
-        /* getNotes(); */   //saber q fue exitosa guardar la nota
+        /* getNotes(); */   //saber q fue exitosa guardar la nota (llamando a la funcion getNotes()para que rendrize en el navegador)
         })
     };
 
@@ -69,7 +70,6 @@ export function HomeNotes ({ getNotes }) {
                     onChange={handleInputChange}
                     value={values.title}
                     />
-                    {/* <input type="file"/> */}
                     <p><textarea
                     className="comment-post"
                     name='description'

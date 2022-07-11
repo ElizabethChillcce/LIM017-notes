@@ -4,7 +4,7 @@
     /* align-content: space-between; */
     /* margin-top: 1%; */
     margin-bottom: 1%; /* esto recièn se hizo */
-    background-color: #845fcd;
+    /* background-color: #845fcd; */
 }
 .title-form {
     align-content:center ;
@@ -71,29 +71,66 @@ i {
     width:auto;
     margin-bottom: 5%;
   }
-  .post-Notes{
+  /* empieza el contenedor de las notas */
+  .container-post-notes{
     border: 1px solid #ffffff;
-    width:60%;
+    border-radius: 8px;
+    width:70%;
     height: 60%;
     display: block;
+    display: flex;
+    align-content: center;
+    align-items: center;
     flex-direction: column;
     margin: auto;
     margin-top: 15px;
-  }
+    background-color: #c5fcf0;
+}
+  /* .post-Notes{
+    width:60%;
+    height: 60%;
+    display: block;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column; */
+   /*  margin: auto; */
+   /*  margin-top: 15px; */
+    /* background-color: #c5fcf0; */
+     /* border: 1px solid #ffffff;
+  } */
 
   /* contenedor de post notes */
   .container-post-title{
      color: white;
      border: 1px solid;
-     width: 90%;
+     height: 3em;
+     width: 100%;
+     border-radius: 8px;
      display: flex;
      align-content: center;
      align-items: center;
-     height: 3em;
+     border-radius: 8px;
+     margin-top: 6%;
   }
   .post-title{
     font-size: 30px;
   }
+  .post-description{
+    color: whitesmoke;
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 8px;
+    border: solid 1px;
+    height: 3em;
+  }
+  .post-date{
+    color: white;
+    font-size: 20px;
+  }
+
 
 @media only screen and (min-width: 768px) {
  #box-comment {
@@ -118,10 +155,14 @@ i {
 }
 #box-comment {
   max-width: 50%;
+  margin-left: 25%;
 }
 .comment-post {
   font-size: 20px;
   width: 22em;
   height: 3em;
+}
+.container-post-notes{
+  width: 50%;
 }
 }
