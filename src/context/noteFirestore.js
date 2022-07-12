@@ -12,7 +12,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
- //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
+//Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
 export const addOrEditNote = async (noteObject) => {
   try {
     const docRef = await addDoc(collection(db, "notes"), noteObject);
@@ -25,20 +25,20 @@ export const addOrEditNote = async (noteObject) => {
 
 //funciòn q utiliza onSnapshot
 export const watchNotesDos = (setNotesCallback) => {
- const queryDocs = query(collection(db, "notes"));
- onSnapshot(queryDocs, (querySnapshot) =>{
-  const notes = [];
-  querySnapshot.forEach((doc) => {
-    const objetoDocs = doc.data()   //añadiendo al objeto doc.data la propiedad id con su valor atravez de lo ...
+  const queryDocs = query(collection(db, "notes"));
+  onSnapshot(queryDocs, (querySnapshot) => {
+    const notes = [];
+    querySnapshot.forEach((doc) => {
+      const objetoDocs = doc.data(); //añadiendo al objeto doc.data la propiedad id con su valor atravez de lo ...
       const idValue = {
-      id: doc.id,
-      ...objetoDocs,
-    }
-    notes.push(idValue);
-  })
-  setNotesCallback(notes);
- })
-}
+        id: doc.id,
+        ...objetoDocs,
+      };
+      notes.push(idValue);
+    });
+    setNotesCallback(notes);
+  });
+};
 
 // para recuperar todos los documentos de una colección
 export const watchNotes = async () => {
@@ -47,13 +47,13 @@ export const watchNotes = async () => {
 
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    const objetoDocs = doc.data()   //añadiendo al objeto doc.data la propiedad id con su valor atravez de lo ...
+    const objetoDocs = doc.data(); //añadiendo al objeto doc.data la propiedad id con su valor atravez de lo ...
     const idValue = {
       id: doc.id,
       ...objetoDocs,
-  }
+    };
     notes.push(idValue);
-    console.log(idValue)
+    console.log(idValue);
   });
   return notes;
 };
@@ -75,5 +75,5 @@ export const deleteNote = async (id) => {
 } */
 
 export const updateNote = (id, objChanges) => {
- return updateDoc(doc(db, "notes", id), objChanges)
-}
+  return updateDoc(doc(db, "notes", id), objChanges);
+};

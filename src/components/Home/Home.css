@@ -17,15 +17,15 @@
     text-shadow:  #70BF5A ;
     text-shadow: -1px 0 #59AFCA, 0 1px #59AFCA, 1px 0 #59AFCA, 0 -1px #59AFCA, -1px 1px 0 #59AFCA, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA;
 }
-.btn-sign-off {
+.btn-sign-off>i {
   filter: brightness(1.1); /* sirve para quitar el fondo del icono */
   mix-blend-mode: multiply; /* sirve para quitar el fondo del icono */
   border: none;
-  font-size: 50px;
+  /* font-size: 50px; */
 }
 i {
   font-size: 50px;
-}
+} 
 #box-comment{
     border-radius: 10px;
     border: 1px solid  #5878ca;
@@ -140,6 +140,8 @@ i {
   .post-title{
     font-size: 30px;
     color: black;
+    border: 0;
+    outline: none;
   }
   .post-description{
     color: black;
@@ -151,10 +153,13 @@ i {
     border: solid 1px whitesmoke;
     height: 3em;
     background-color: white;
+    resize: none;
+    width: 99%;
   }
   .container-btn-date{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 7%;
   }
   .post-date{
     color: black;
@@ -162,10 +167,10 @@ i {
     margin-right: 50%;
   }
 .btn-edit>i{    /* esta etiqueta i permite identificar al icono q vamos a cambiar color */
-  color: red;
+  color: rgb(0, 255, 64);
 }
 .fa-solid{
-  color: rgb(0, 255, 64);
+  color: red;
   font-size: 20px;
 }
 

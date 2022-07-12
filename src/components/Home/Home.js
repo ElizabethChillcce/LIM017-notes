@@ -10,12 +10,10 @@ import {
 } from "../../context/noteFirestore";
 
 export const Home = (props) => {
+  
   const [notes, setNotes] = useState([]);
 
-  const [editId, setEditId] = useState(""); //identificar el id q vamos a editar
-
-  const getNotes = async () => {
-    debugger;
+ const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
     await watchNotes().then((response) => {
       console.log(response);
       setNotes(response);
@@ -25,6 +23,7 @@ export const Home = (props) => {
   //funcion para editar las notas
   const editNote = (note) => {
     console.log(note);
+     updateNote(note.id, note);
   };
 
   useEffect(() => {
@@ -35,44 +34,66 @@ export const Home = (props) => {
   //funcion eliminar notas
   const removeNote = async (id) => {
     console.log(id);
-    debugger;
+    /* debugger; */
     await deleteNote(id);
     /* getNotes(); */ //llamndo a una funcion para q actualize el interfaz
     /* return props.removeNote */
   };
 
+  //variable para almacena la funcion q esta en onChange y asi pueda traer los valores del input post-title y pos-description
+  const handleFormChange = (index, ev) => {
+    let data = [...notes]; //rellenar informacion o trayendo inform de mi ob notes ahora en esta variable
+    data[index][ev.target.name] = ev.target.value;
+    setNotes(data);
+  };
+
+
   return (
     <div>
-        <div>
-            <HomeNotes getNotes={getNotes} />{" "}
-            {/* compartiendo con el hijo un props  getNotes*/}
-        </div>
-    <div className="container-post-notes">
+      <div>
+        <HomeNotes getNotes={getNotes} />
+        {/* compartiendo con el hijo un props  getNotes*/}
+      </div>
+      <div className="container-post-notes">
         <div className="post-Notes">
-            {notes.map((note) => (
-                <div key={note.id} className="card mb-1 p-2">
-                    <div className="card body">
+          {notes.map((note, index) => (
+            <div key={note.id} className="card mb-1 p-2">
+              <div className="card body">
                 <div className="container-post-title">
-                    <h4 className="post-title">{note.title}</h4>
+                  {/* <h4 className="post-title">{note.title}</h4>  */}
+                  <input
+                    name="title"
+                    className="post-title"
+                    value={note.title}
+                    onChange={(ev) => handleFormChange(index, ev)}
+                  ></input>
                 </div>
                 <div>
-                    <p className="post-description">{note.description}</p>
+                  {/* <textarea className="post-description">{note.description}</textarea> */}
+                  <textarea
+                    name="description"
+                    className="post-description"
+                    value={note.description}
+                    onChange={(ev) => handleFormChange(index,ev)}
+                    ></textarea>
                 </div>
-            </div>
-                <div className="container-btn-date">
-                    <div className="post-date">Fecha: {/* {note.timeStamp} */} </div>
-                    <button onClick={() => editNote(note)} className="btn-edit">
-                        <i className="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    {/* <button className="refresh">Actualizar</button> */}
-                    <button onClick={() => removeNote(note.id)}>
-                        <i className="fa-solid fa-trash-can"></i>
-                    </button>
+              </div>
+              <div className="container-btn-date">
+                <div className="post-date">
+                  <p>Fecha: {note.timeStamp.toDate().toDateString()}</p> {/* metodo de TimeStamp lovielve date y luego string */}
                 </div>
+                <button onClick={() => editNote(note)} className="btn-edit">
+                  <i className="fa-solid fa-pen-to-square"></i>
+                </button>
+                {/* <button className="refresh">Actualizar</button> */}
+                <button onClick={() => removeNote(note.id)}>
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
             </div>
-            ))}
-            </div>
+          ))}
         </div>
+      </div>
     </div>
   );
 };
