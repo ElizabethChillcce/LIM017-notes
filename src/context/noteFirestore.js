@@ -9,6 +9,7 @@ import {
   doc,
   getDocs,
   getDoc,
+  updateDoc,
 } from "firebase/firestore";
 
  //Agrega un documento, Pero a veces no hay un ID significativo para el documento y es más conveniente dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add()
@@ -26,7 +27,6 @@ export const addOrEditNote = async (noteObject) => {
 export const watchNotesDos = (setNotesCallback) => {
  const queryDocs = query(collection(db, "notes"));
  onSnapshot(queryDocs, (querySnapshot) =>{
-  debugger
   const notes = [];
   querySnapshot.forEach((doc) => {
     const objetoDocs = doc.data()   //añadiendo al objeto doc.data la propiedad id con su valor atravez de lo ...
@@ -64,7 +64,7 @@ export const deleteNote = async (id) => {
 };
 
 //funcion para editar las notas
-export const getNoteById = async (id) => {
+/* export const getNoteById = async (id) => {
   try {
     const docRef = doc(db, "notes", id)
     const docSnap = await getDoc(docRef)
@@ -72,4 +72,8 @@ export const getNoteById = async (id) => {
   } catch(error){
     console.log(error);
   }
+} */
+
+export const updateNote = (id, objChanges) => {
+ return updateDoc(doc(db, "notes", id), objChanges)
 }

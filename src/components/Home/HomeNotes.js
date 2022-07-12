@@ -70,7 +70,7 @@ export function HomeNotes ({ getNotes }) {
                     onChange={handleInputChange}
                     value={values.title}
                     />
-                    <p><textarea
+                    <p className="description-comment"><textarea
                     className="comment-post"
                     name='description'
                     placeholder='Escribe tus recordatorios'
@@ -79,14 +79,15 @@ export function HomeNotes ({ getNotes }) {
                     rows="4" cols="30"
                     ></textarea></p>
                     <button
+                    className="btn-save"
                     onClick={handleSubmit}>
                     Guardar
                     </button>
-                    <button
+                    {/* <button
                     type="reset"
                     className='deleteCamp'>
-                    <i className="fa-solid fa-trash-can"></i>  {/* icono del tachito */}
-                    </button>
+                    <i className="fa-solid fa-trash-can"></i> */} {/* icono del tachito */}
+                    {/* </button> */}
                 </form>
             </div>
         </section>
