@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { HomeNotes } from "./HomeNotes";
+import { NoteForm } from "./NoteForm";
 
 import {
   watchNotes,
   deleteNote,
   watchNotesDos,
-  getNoteById,
+  /* getNoteById, */
   updateNote,
 } from "../../context/noteFirestore";
 
 export const Home = (props) => {
-  
+  console.log("hola estamos en Home");
+
   const [notes, setNotes] = useState([]);
 
- const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
+  const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
     await watchNotes().then((response) => {
       console.log(response);
       setNotes(response);
@@ -23,7 +24,7 @@ export const Home = (props) => {
   //funcion para editar las notas
   const editNote = (note) => {
     console.log(note);
-     updateNote(note.id, note);
+    updateNote(note.id, note);
   };
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export const Home = (props) => {
   return (
     <div>
       <div>
-        <HomeNotes getNotes={getNotes} />
+        <NoteForm getNotes={getNotes} />
         {/* compartiendo con el hijo un props  getNotes*/}
       </div>
       <div className="container-post-notes">
@@ -74,19 +75,19 @@ export const Home = (props) => {
                     name="description"
                     className="post-description"
                     value={note.description}
-                    onChange={(ev) => handleFormChange(index,ev)}
-                    ></textarea>
+                    onChange={(ev) => handleFormChange(index, ev)}
+                  ></textarea>
                 </div>
               </div>
               <div className="container-btn-date">
                 <div className="post-date">
-                  <p>Fecha: {note.timeStamp.toDate().toDateString()}</p> {/* metodo de TimeStamp lovielve date y luego string */}
+                  <p id="date">Fecha: {note.timeStamp.toDate().toDateString()}</p> {/* metodo de TimeStamp lovielve date y luego string */}
                 </div>
                 <button onClick={() => editNote(note)} className="btn-edit">
                   <i className="fa-solid fa-pen-to-square"></i>
                 </button>
                 {/* <button className="refresh">Actualizar</button> */}
-                <button onClick={() => removeNote(note.id)}>
+                <button onClick={() => removeNote(note.id)} data-testid="delet-note">
                   <i className="fa-solid fa-trash-can"></i>
                 </button>
               </div>

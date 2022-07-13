@@ -8,7 +8,6 @@ import {
   deleteDoc,
   doc,
   getDocs,
-  getDoc,
   updateDoc,
 } from "firebase/firestore";
 
@@ -23,7 +22,7 @@ export const addOrEditNote = async (noteObject) => {
   }
 };
 
-//funciòn q utiliza onSnapshot
+//funciòn q utiliza onSnapshot para recuperar todos los documentos de una colección
 export const watchNotesDos = (setNotesCallback) => {
   const queryDocs = query(collection(db, "notes"));
   onSnapshot(queryDocs, (querySnapshot) => {
