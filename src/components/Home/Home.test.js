@@ -1,13 +1,13 @@
-/* import React from 'react'
+import React from 'react'
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import {createMemoryHistory} from 'history'
 import {Router} from 'react-router-dom'
-import {Home} from '../../../components/Home/Home';
-import { AuthProvider } from '../../../context/authContext.js';
- */
+import {Home} from './Home';
+import { AuthProvider } from '../../context/authContext.js';
 
-/* jest.mock("../../../context/noteFirestore.js")
+jest.mock("../../context/authContext.js")
+jest.mock("../../context/noteFirestore.js")
 
 describe.only("prueba del Home", () => {
     test('eliminar notas', () => {
@@ -19,10 +19,8 @@ describe.only("prueba del Home", () => {
             </Router>
           </AuthProvider>
         );
-        const linkElement = screen.getByTestId(/"delet-note"/i);
+        const linkElement = screen.getByTestId("delete-note");
         console.log("linkElement", linkElement);
         expect(linkElement).toBeInTheDocument();
       });
-      
-      
-}) */
+    })

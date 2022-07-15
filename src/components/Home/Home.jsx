@@ -28,6 +28,7 @@ export const Home = (props) => {
   };
 
   useEffect(() => {
+    console.log("useEffect");
     watchNotesDos(setNotes); //actualizando con el useStade "setNotes" pasandolo como un callback para ello usando la funcion watchNotesDos q tiene onSnapshot
     console.log("hola");
   }, []);
@@ -81,13 +82,13 @@ export const Home = (props) => {
               </div>
               <div className="container-btn-date">
                 <div className="post-date">
-                  <p id="date">Fecha: {note.timeStamp.toDate().toDateString()}</p> {/* metodo de TimeStamp lovielve date y luego string */}
+                  <p id="date">Fecha: {note.timeStamp.toDate().toLocaleString()}</p> {/* metodo de TimeStamp lovielve date y luego string */}
                 </div>
                 <button onClick={() => editNote(note)} className="btn-edit">
                   <i className="fa-solid fa-pen-to-square"></i>
                 </button>
                 {/* <button className="refresh">Actualizar</button> */}
-                <button onClick={() => removeNote(note.id)} data-testid="delet-note">
+                <button onClick={() => removeNote(note.id)} data-testid="delete-note">
                   <i className="fa-solid fa-trash-can"></i>
                 </button>
               </div>

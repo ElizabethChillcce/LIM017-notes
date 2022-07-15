@@ -12,11 +12,12 @@ export function Register() {
         email: '',
         password: '',
     });
+    const [error, setError] = useState();
+
 
     const { signup } = useAuth()
     const navigate = useNavigate()
-    const [error, setError] = useState();
-
+    
     const handleChange = ({ target: { name, value } }) =>
         setUser({ ...user, [name]: value });
 
@@ -27,8 +28,7 @@ export function Register() {
             await signup(user.email, user.password)
             navigate('/login')
         } catch (error) {
-            console.log(error);
-            if (error.code === 'auth/invalid-email') {
+            /* if (error.code === 'auth/invalid-email') {
                 setError('Correo Inválido')
                 return
             }
@@ -43,19 +43,18 @@ export function Register() {
             if (error.code === "auth/internal-error") {
                 setError('Error revise los campos de registro')
                 return
+            } */
+                switch (error.code) {
+                    case "auth/internal-error": return setError("Correo Inválido");
+                    case "auth/invalid-email": return setError ('Digite un correo válido');
+                    case "auth/email-already-in-use": return setError ('El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.');
+                    default: return error.code;
+                }
+            /*  return setError(error.code); */
             }
-            /* setError(error.menssage); */
-            /*  switch (error.code) {
-                 case 'error.code === "auth/internal-error"' : setError("Correo Inválido")/* ='El correo es obligatorio'; break;
-                 case 'error.code === "auth/invalid-email"': setError ('Digite un correo válido'); break;
-                 case 'error.code === "auth/email-already-in-use"': setError ('El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.'); break;
-                 default: return error.code;
-               } */
-            return setError(error.code);
-        }
     }
 
-    return <div>
+    return( <>
         <section>
             <section>
                 <div id="container-title-image">
@@ -86,5 +85,5 @@ export function Register() {
                 </form>
             </section>
         </section>
-    </div>;
+    </>);
 }
