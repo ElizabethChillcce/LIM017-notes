@@ -14,6 +14,8 @@ export const Home = (props) => {
 
   const [notes, setNotes] = useState([]);
 
+  /* const [disableBtn, setDisableBtn] = useState(false); */   // es de prueba
+
   const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
     await watchNotes().then((response) => {
       console.log(response);
@@ -49,6 +51,10 @@ export const Home = (props) => {
     setNotes(data);
   };
 
+  /* const enableButton = () => {
+    setDisableBtn(false);
+  console.log("desabilitado")
+  } */
 
   return (
     <div>
@@ -68,6 +74,7 @@ export const Home = (props) => {
                     className="post-title"
                     value={note.title}
                     onChange={(ev) => handleFormChange(index, ev)}
+                    /* disabled={true} */  //esto lo añadi de prueba para evitar q el usuario escriba antes de presionar el boton editar
                   ></input>
                 </div>
                 <div>
@@ -86,7 +93,8 @@ export const Home = (props) => {
                 </div>
                 <button onClick={() => editNote(note)} className="btn-edit">
                   <i className="fa-solid fa-pen-to-square"></i>
-                </button>
+                </button>  {/* esta es la funcion correcta */}
+
                 {/* <button className="refresh">Actualizar</button> */}
                 <button onClick={() => removeNote(note.id)} data-testid="delete-note">
                   <i className="fa-solid fa-trash-can"></i>
