@@ -1,47 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NoteForm } from "./NoteForm";
 
-import {
-  watchNotes,
-  deleteNote,
-  watchNotesDos,
-  /* getNoteById, */
-  updateNote,
-} from "../../context/noteFirestore";
-
-export const Home = (props) => {
-  console.log("hola estamos en Home");
-
-  const [notes, setNotes] = useState([]);
-
+export const Home = ({notes, setNotes, updateNote, deleteNote}) => {
   /* const [disableBtn, setDisableBtn] = useState(false); */   // es de prueba
 
-  const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
-    await watchNotes().then((response) => {
-      console.log(response);
-      setNotes(response);
-    });
-  };
+  // const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
+  //   await watchNotes().then((response) => {
+  //     setNotes(response);
+  //   });
+  // };
 
   //funcion para editar las notas
   const editNote = (note) => {
-    console.log(note);
     updateNote(note.id, note);
   };
 
-  useEffect(() => {
-    console.log("useEffect");
-    watchNotesDos(setNotes); //actualizando con el useStade "setNotes" pasandolo como un callback para ello usando la funcion watchNotesDos q tiene onSnapshot
-    console.log("hola");
-  }, []);
-
   //funcion eliminar notas
   const removeNote = async (id) => {
-    console.log(id);
-    /* debugger; */
     await deleteNote(id);
-    /* getNotes(); */ //llamndo a una funcion para q actualize el interfaz
-    /* return props.removeNote */
   };
 
   //variable para almacena la funcion q esta en onChange y asi pueda traer los valores del input post-title y pos-description
@@ -59,7 +35,7 @@ export const Home = (props) => {
   return (
     <div>
       <div>
-        <NoteForm getNotes={getNotes} />
+        <NoteForm />
         {/* compartiendo con el hijo un props  getNotes*/}
       </div>
       <div className="container-post-notes">
