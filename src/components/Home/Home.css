@@ -48,6 +48,12 @@
   height: 30%;
 }
 
+.name-paragraph-form{
+  font-size: 25px;
+  margin-bottom: 1px;
+  font-family: 'Roboto', sans-serif;
+}
+
 #box-comment {
   border-radius: 10px;
   border: 1px solid #5878ca;

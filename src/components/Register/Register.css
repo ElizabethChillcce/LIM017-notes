@@ -19,7 +19,6 @@ body {
     font-family: 'Acme', sans-serif;
     font-weight: bold;
     font-size: 60px;
-    /* esto recien se hizo */
     margin: 5px;
     margin-top: 8px;
     text-shadow: #70BF5A;
@@ -29,7 +28,8 @@ body {
 .title-spanish-main {
     margin: auto;
     text-align: center;
-    font-family: 'Courgette', cursive;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Courgette', cursive; */
     font-weight: bold;
     font-size: 40px;
     /* esto recien se hizo */
@@ -47,7 +47,7 @@ body {
     width: 12%;
 }
 
-.textContainerRegister {
+.text-container-register {
     background-color: rgb(252, 247, 247);
     display: flex;
     /* justify-content:center; */
@@ -66,10 +66,11 @@ body {
     /* esto se aumento */
 }
 
-.textRegister {
+.text-register {
     font-size: 30px;
     color: #8d2ca5;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Acme', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     font-weight: bold;
     text-align: center;
     /* margin-top: 0px; */
@@ -78,8 +79,7 @@ body {
 
 label {
     font-size: 22px;
-    font-family: sans-serif;
-    ;
+    font-family: 'Roboto', sans-serif;
     text-align: left;
     margin-left: 10%;
 }
@@ -103,7 +103,7 @@ label {
     color: #000000;
 }
 
-#messageVerificado {
+#message-verified {
     font-size: 20px;
     color: #f30000;
     font-family: inherit;
@@ -185,7 +185,7 @@ label {
 }
 
 @media only screen and (min-width: 768px) {
-    .textContainerRegister {
+    .text-container-register {
         max-width: 40em;
     }
 
@@ -202,7 +202,7 @@ label {
         margin-bottom: 8%;
     }
 
-    .textRegister {
+    .text-register {
         font-size: 40px;
     }
 
@@ -220,9 +220,9 @@ label {
 }
 
 @media only screen and (min-width: 1024px) {
-    .textContainerRegister {
+    .text-container-register {
         max-width: 30em;
-        height: 30em;
+        height: 35em;
     }
 
     #containerTitleImage {
@@ -234,7 +234,7 @@ label {
         margin: auto;
     }
 
-    .textRegister {
+    .text-register {
         font-size: 34px;
     }
 

@@ -70,7 +70,7 @@ export function Login() {
                 <h3 className="title-spanish-main">Recordatorio</h3>
             </section>
             <section className="text-container">
-                <h3 className="text-login">Login</h3>
+                <h3 className="text-login">Iniciar sesión</h3>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='email' className="email">Email<br></br>
                         <input type='email' data-testid="createEmail" className="createEmail" placeholder='elichil@example.com' name='email' onChange={handleChange} />

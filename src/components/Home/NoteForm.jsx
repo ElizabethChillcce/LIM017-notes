@@ -56,15 +56,14 @@ export function NoteForm() {
                         muted
                         loop
                     ></video>
-                    {/* <img src={laptop} className="laptop" alt="" /> */}
                     <h2 className="title-form">YUYARINAPAQ</h2>
                     <button onClick={handleLogout} className="btn-sign-off">
                         {/* <i className="fa-solid fa-right-from-bracket" id="btn-sign-off"></i> */}
                         <img src={iconoSignOff} className="icono-singn" alt="" />
                     </button>
                 </header>
-                <p className="text-name">Hola: {user.displayName || user.email}</p>
-                <p className="text-name">Escribe tus recordatorios!!</p>
+                <p className="name-paragraph-form">Hola: {user.displayName || user.email}</p>
+                <p className="name-paragraph-form">Escribe tus recordatorios!!</p>
                 <div id="box-comment">
                     <form className="form-for-notes">
                         <input

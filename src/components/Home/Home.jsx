@@ -14,7 +14,7 @@ export const Home = (props) => {
 
   const [notes, setNotes] = useState([]);
 
-  /* const [disableBtn, setDisableBtn] = useState(false); */   // es de prueba
+  const [disableBtn, setDisableBtn] = useState(true);
 
   const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
     await watchNotes().then((response) => {
@@ -23,11 +23,11 @@ export const Home = (props) => {
     });
   };
 
-  //funcion para editar las notas
-  const editNote = (note) => {
-    console.log(note);
-    updateNote(note.id, note);
-  };
+  //funcion para editar  y actualizar las notas
+    const updateNotes = (note) => {
+    updateNote(note.id, note)
+    setDisableBtn(true);
+  }
 
   useEffect(() => {
     console.log("useEffect");
@@ -38,7 +38,6 @@ export const Home = (props) => {
   //funcion eliminar notas
   const removeNote = async (id) => {
     console.log(id);
-    /* debugger; */
     await deleteNote(id);
     /* getNotes(); */ //llamndo a una funcion para q actualize el interfaz
     /* return props.removeNote */
@@ -51,10 +50,6 @@ export const Home = (props) => {
     setNotes(data);
   };
 
-/*  const enableButton = () => {
-    setDisableBtn(false);
-  console.log("desabilitado")
-  }  */
 
   return (
     <div>
@@ -74,11 +69,10 @@ export const Home = (props) => {
                     className="post-title"
                     value={note.title}
                     onChange={(ev) => handleFormChange(index, ev)}
-                    disabled={true} //esto lo añadi de prueba para evitar q el usuario escriba antes de presionar el boton editar
+                    disabled={disableBtn}//esto lo añadi de prueba para evitar q el usuario escriba antes de presionar el boton editar
                   ></input>
                 </div>
                 <div>
-                  {/* <textarea className="post-description">{note.description}</textarea> */}
                   <textarea
                     name="description"
                     className="post-description"
@@ -91,14 +85,14 @@ export const Home = (props) => {
                 <div className="post-date">
                   <p id="date">Fecha: {note.timeStamp.toDate().toLocaleString()}</p> {/* metodo de TimeStamp lovielve date y luego string */}
                 </div>
-                <button onClick={() => editNote(note)} className="btn-edit">
+                <button onClick={() => setDisableBtn(false)} className="btn-edit">
                   <i className="fa-solid fa-pen-to-square"></i>
-                </button> {/* esta es la funcion correcta */}
-                 {/* <button onClick={() => editNote(note)}
+                </button>
+                 {/* <button
                  onClick={() => enableButton()}
                  className="btn-edit">
                   <i className="fa-solid fa-pen-to-square"></i></button> */}
-                {/* <button className="refresh">Actualizar</button> */}
+                <button onClick={() => updateNotes(note)}  className="refresh">Actualizar</button>
                 <button onClick={() => removeNote(note.id)} data-testid="delete-note">
                   <i className="fa-solid fa-trash-can"></i>
                 </button>

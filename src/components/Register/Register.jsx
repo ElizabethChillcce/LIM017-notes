@@ -64,12 +64,12 @@ export function Register() {
                 </div>
                 <h3 className="title-spanish-main">Recordatorio</h3>
             </section>
-            <section className="textContainerRegister">
-                <h3 className="textRegister">Registro</h3>
+            <section className="text-container-register">
+                <h3 className="text-register">Registro</h3>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="name">Nombre de usuario<br></br>
+                    {/* <label htmlFor="name">Nombre de usuario<br></br>
                         <input type='text' id='createName' placeholder='Ejm: Eli Chil' name='nameUser' onChange={handleChange} />
-                    </label><br></br>
+                    </label><br></br> */}
                     <label htmlFor='email'>Email<br></br>
                         <input type='email' id='createEmail' placeholder='elichil@example.com' name='email' onChange={handleChange} />
                     </label>
@@ -77,7 +77,7 @@ export function Register() {
                     <label htmlFor='password'>Contraseña<br></br>
                         <input type='password' id='createPassword' placeholder='Mayor a 6 carácteres' name='password' onChange={handleChange} />
                     </label>
-                    {error && <p id='messageVerificado'>{error}</p>}
+                    {error && <p id='message-verified'>{error}</p>}
                     <button id='buttonUserRegister' onChange={handleChange}> Crear Ususario</button>
                     <div id='containerLink'>
                         <Link to="/" className="linkBeginning">Volver a inicio</Link>
