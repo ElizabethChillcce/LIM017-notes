@@ -59,7 +59,8 @@ p {
 
 .containerGetInto,
 .containerLogin {
-    width: 170px;
+   /*  width: 170px; */
+    width: 190px;
     height: 30px;
     cursor: pointer;
     /* background: transparent; */
@@ -99,7 +100,7 @@ p {
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
-    padding-left: 16%;
+    padding-left: 10%;
 }
 
 .btn-welcome {
@@ -154,7 +155,8 @@ p {
     }
 
     .containerGetInto {
-        width: 230px;
+        /* width: 230px; */
+        width: 15em;
         height: 60px;
         margin-top: 5%;
         padding: 2px;
@@ -164,7 +166,8 @@ p {
     }
 
     .containerLogin {
-        width: 230px;
+        /* width: 230px; */
+        width: 15em;
         height: 60px;
         margin-top: 15%;
         padding: 2px;
@@ -179,9 +182,10 @@ p {
     }
 
     .link-login {
-        margin: 30px;
+        /* margin: 30px; */
         margin-top: 50px;
         font-size: 33px;
+        padding-left: 6%;
     }
 }
 
@@ -226,5 +230,6 @@ p {
     .link-login {
         font-size: 23px;
         text-decoration: none;
+        padding-left: 11%;
     }
 }

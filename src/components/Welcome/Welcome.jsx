@@ -17,7 +17,7 @@
             <Link to="/register" className="link-register">Registrarse</Link><br></br>
             </div>
             <div className="containerLogin">
-            <Link to="/login" className="link-login">Login</Link>
+            <Link to="/login" className="link-login">Cerrar sesión</Link>
             </div>
             </div>
             </section>
