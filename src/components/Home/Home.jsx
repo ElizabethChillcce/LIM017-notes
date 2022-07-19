@@ -14,7 +14,7 @@ export const Home = (props) => {
 
   const [notes, setNotes] = useState([]);
 
-  const [disableBtn, setDisableBtn] = useState(true);
+  const [disableBtn, setDisableBtn] = useState(true); // este estado me permite controlar el atributo disable de input y textarea
 
   const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
     await watchNotes().then((response) => {
@@ -63,13 +63,12 @@ export const Home = (props) => {
             <div key={note.id} className="card mb-1 p-2">
               <div className="card body">
                 <div className="container-post-title">
-                  {/* <h4 className="post-title">{note.title}</h4>  */}
                   <input
                     name="title"
                     className="post-title"
                     value={note.title}
                     onChange={(ev) => handleFormChange(index, ev)}
-                    disabled={disableBtn}//esto lo añadi de prueba para evitar q el usuario escriba antes de presionar el boton editar
+                    disabled={disableBtn}//atributo disable con la funciòn q la actualizar el valor actual q comienza en true
                   ></input>
                 </div>
                 <div>
@@ -78,6 +77,7 @@ export const Home = (props) => {
                     className="post-description"
                     value={note.description}
                     onChange={(ev) => handleFormChange(index, ev)}
+                    disabled={disableBtn}
                   ></textarea>
                 </div>
               </div>
@@ -85,13 +85,9 @@ export const Home = (props) => {
                 <div className="post-date">
                   <p id="date">Fecha: {note.timeStamp.toDate().toLocaleString()}</p> {/* metodo de TimeStamp lovielve date y luego string */}
                 </div>
-                <button onClick={() => setDisableBtn(false)} className="btn-edit">
+                <button onClick={() => setDisableBtn(false)} className="btn-edit">  {/* aqui el atributo disable permite q se puede escribir en input y textarea por eso esta en false */}
                   <i className="fa-solid fa-pen-to-square"></i>
                 </button>
-                 {/* <button
-                 onClick={() => enableButton()}
-                 className="btn-edit">
-                  <i className="fa-solid fa-pen-to-square"></i></button> */}
                 <button onClick={() => updateNotes(note)}  className="refresh">Actualizar</button>
                 <button onClick={() => removeNote(note.id)} data-testid="delete-note">
                   <i className="fa-solid fa-trash-can"></i>

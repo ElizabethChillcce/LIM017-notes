@@ -78,7 +78,7 @@ export function Register() {
                         <input type='password' id='createPassword' placeholder='Mayor a 6 carácteres' name='password' onChange={handleChange} />
                     </label>
                     {error && <p id='message-verified'>{error}</p>}
-                    <button id='buttonUserRegister' onChange={handleChange}> Crear Ususario</button>
+                    <button id='buttonUserRegister' onChange={handleChange}> Crear ususario</button>
                     <div id='containerLink'>
                         <Link to="/" className="linkBeginning">Volver a inicio</Link>
                     </div>

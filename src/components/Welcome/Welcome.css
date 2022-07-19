@@ -33,10 +33,10 @@ body {
 
 .title-spanish {
     text-align: center;
-    font-family: 'Courgette', cursive;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Courgette', cursive; */
     font-weight: bold;
     font-size: 50px;
-    /* esto recien se hizo */
     margin: 5px;
     margin-top: 5px;
     color: #c5fcf0;
@@ -47,7 +47,7 @@ body {
 p {
     color: whitesmoke;
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Acme', sans-serif;
     margin-top: 1%;
     /* esto se aumento */
 }
@@ -138,7 +138,6 @@ p {
     p {
         color: whitesmoke;
         font-size: 28px;
-        font-family: 'Roboto', sans-serif;
         margin-top: 2%;
         margin-bottom: 8%;
     }
