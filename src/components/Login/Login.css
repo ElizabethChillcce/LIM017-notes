@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 1%;
+    margin-top: 5%;
 }
 
 .title-register-main {
@@ -42,8 +42,8 @@
     font-family: 'Acme', sans-serif;
     font-weight: bold;
     text-align: center;
-    margin-top: 10%;
-    margin-bottom: 4%;
+    margin-top: 8%;
+    margin-bottom: 10%;
     max-height: 0em;
 }
 

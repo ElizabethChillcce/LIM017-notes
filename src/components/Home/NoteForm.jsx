@@ -3,9 +3,9 @@ import { useAuth } from "../../context/authContext";
 import { addOrEditNote } from "../../context/noteFirestore";
 /* import laptop from '../../images/laptop.png'; */
 import "./Home.css";
-import video from "../../video/videoHome.mp4";
+import video1 from "../../video/videoHome.mp4";
 /* import iconoSignOff from "../../images/iconoSignOff.png"; */
-/* import video from "../../video/icono-sign-off.mp4"; */
+import video2 from "../../video/icono-sign-off.mp4";
 
 
 export function NoteForm() {
@@ -50,7 +50,7 @@ export function NoteForm() {
             <section>
                 <header className="container-title-image-home">
                     <video
-                        src={video}
+                        src={video1}
                         type="video/mp4"
                         className="logo-video-register"
                         with="40px"
@@ -62,7 +62,7 @@ export function NoteForm() {
                     <button onClick={handleLogout} className="btn-sign-off">
                         {/* <i className="fa-solid fa-right-from-bracket" id="btn-sign-off"></i> */}
                         <video
-                        url={require("../../video/icono-sign-off.mp4")}
+                        src={video2}
                         type="video/mp4"
                         className="icono-singn"
                         with="35px"

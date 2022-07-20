@@ -96,7 +96,7 @@ export const Home = (props) => {
                 <i className="fa-solid fa-arrows-rotate" />
                 </button>
                 <button onClick={() => removeNote(note.id)} data-testid="delete-note">
-                  <i className="fa-solid fa-trash-can "></i> esto es para q se me mueva el icono
+                  <i className="fa-solid fa-trash-can "></i> {/* esto es para q se me mueva el icono */}
                 </button>
               </div>
             </div>

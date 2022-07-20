@@ -29,8 +29,11 @@
 } */
 
 .icono-singn{
-  width: 30%;
-  height: 30%;
+  /* width: 30%;
+  height: 30%; */
+  width: 60%;
+  height: 40%;
+  padding-top: 40%;
 }
 
 .name-paragraph-form{
@@ -212,6 +215,13 @@
   .comment-post {
     font-size: 27px;
     height: 3em;
+    color: black;
+  }
+
+  .icono-singn{
+    width: 60%;
+    height: 40%;
+    padding-top: 50%;
   }
 }
 
