@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import video from '../../video/logo-teclas.mp4'
+import video from '../../video/loginVideo.mp4';
 
 export function Register() {
     const [user, setUser] = useState({
@@ -78,7 +78,7 @@ export function Register() {
                         <input type='password' id='createPassword' placeholder='Mayor a 6 carácteres' name='password' onChange={handleChange} />
                     </label>
                     {error && <p id='message-verified'>{error}</p>}
-                    <button id='buttonUserRegister' onChange={handleChange}> Crear ususario</button>
+                    <button id='button-user-register' onChange={handleChange}> Crear ususario</button>
                     <div id='containerLink'>
                         <Link to="/" className="linkBeginning">Volver a inicio</Link>
                     </div>

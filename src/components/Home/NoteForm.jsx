@@ -3,8 +3,10 @@ import { useAuth } from "../../context/authContext";
 import { addOrEditNote } from "../../context/noteFirestore";
 /* import laptop from '../../images/laptop.png'; */
 import "./Home.css";
-import video from "../../video/logo-teclas.mp4";
-import iconoSignOff from "../../images/iconoSignOff.png";
+import video from "../../video/videoHome.mp4";
+/* import iconoSignOff from "../../images/iconoSignOff.png"; */
+/* import video from "../../video/icono-sign-off.mp4"; */
+
 
 export function NoteForm() {
     const initialStateValue = {
@@ -59,7 +61,16 @@ export function NoteForm() {
                     <h2 className="title-form">YUYARINAPAQ</h2>
                     <button onClick={handleLogout} className="btn-sign-off">
                         {/* <i className="fa-solid fa-right-from-bracket" id="btn-sign-off"></i> */}
-                        <img src={iconoSignOff} className="icono-singn" alt="" />
+                        <video
+                        url={require("../../video/icono-sign-off.mp4")}
+                        type="video/mp4"
+                        className="icono-singn"
+                        with="35px"
+                        autoPlay
+                        muted
+                        loop
+                        ></video>
+                        {/* <img src={iconoSignOff} className="icono-singn" alt="" /> */}
                     </button>
                 </header>
                 <p className="name-paragraph-form">Hola: {user.displayName || user.email}</p>
@@ -73,6 +84,7 @@ export function NoteForm() {
                             placeholder="Título"
                             onChange={handleInputChange}
                             value={values.title}
+                            required
                         />
                         <p className="description-comment">
                             <textarea
@@ -88,12 +100,6 @@ export function NoteForm() {
                         <button className="btn-save" onClick={handleSubmit}>
                             Guardar
                         </button>
-                        {/* <button
-                    type="reset"
-                    className='deleteCamp'>
-                    <i className="fa-solid fa-trash-can"></i> */}{" "}
-                        {/* icono del tachito */}
-                        {/* </button> */}
                     </form>
                 </div>
             </section>

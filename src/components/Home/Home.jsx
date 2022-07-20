@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { NoteForm } from "./NoteForm";
+import { useAuth } from "../../context/authContext";
 
 import {
   watchNotes,
   deleteNote,
   watchNotesDos,
-  /* getNoteById, */
   updateNote,
 } from "../../context/noteFirestore";
 
@@ -16,12 +16,15 @@ export const Home = (props) => {
 
   const [disableBtn, setDisableBtn] = useState(true); // este estado me permite controlar el atributo disable de input y textarea
 
-  const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
+  const { user, logout, loading } = useAuth();
+
+ // const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
+  /* console.log(user);
     await watchNotes().then((response) => {
       console.log(response);
       setNotes(response);
     });
-  };
+  }; */
 
   //funcion para editar  y actualizar las notas
     const updateNotes = (note) => {
@@ -31,8 +34,9 @@ export const Home = (props) => {
 
   useEffect(() => {
     console.log("useEffect");
-    watchNotesDos(setNotes); //actualizando con el useStade "setNotes" pasandolo como un callback para ello usando la funcion watchNotesDos q tiene onSnapshot
+    watchNotesDos(setNotes, user); //actualizando con el useStade "setNotes" pasandolo como un callback para ello usando la funcion watchNotesDos q tiene onSnapshot
     console.log("hola");
+    console.log("Home", user);
   }, []);
 
   //funcion eliminar notas
@@ -54,7 +58,7 @@ export const Home = (props) => {
   return (
     <div>
       <div>
-        <NoteForm getNotes={getNotes} />
+        <NoteForm /* getNotes={getNotes} */ />
         {/* compartiendo con el hijo un props  getNotes*/}
       </div>
       <div className="container-post-notes">
@@ -88,9 +92,11 @@ export const Home = (props) => {
                 <button onClick={() => setDisableBtn(false)} className="btn-edit">  {/* aqui el atributo disable permite q se puede escribir en input y textarea por eso esta en false */}
                   <i className="fa-solid fa-pen-to-square"></i>
                 </button>
-                <button onClick={() => updateNotes(note)}  className="refresh">Actualizar</button>
+                <button onClick={() => updateNotes(note)}  className="refresh">
+                <i className="fa-solid fa-arrows-rotate" />
+                </button>
                 <button onClick={() => removeNote(note.id)} data-testid="delete-note">
-                  <i className="fa-solid fa-trash-can"></i>
+                  <i className="fa-solid fa-trash-can "></i> esto es para q se me mueva el icono
                 </button>
               </div>
             </div>

@@ -32,7 +32,6 @@ body {
     /* font-family: 'Courgette', cursive; */
     font-weight: bold;
     font-size: 40px;
-    /* esto recien se hizo */
     color: #c5fcf0;
     text-shadow: #70BF5A;
     text-shadow: -1px 0 #59AFCA, 0 1px #59AFCA, 1px 0 #59AFCA, 0 -1px #59AFCA, -1px 1px 0 #59AFCA, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA;
@@ -59,7 +58,7 @@ body {
     box-shadow: 0px 0px 5px 1px #666464;
     /* max-width: 600px;  */
     /* esto se aumento */
-    height: 38em;
+    height: 35em;
     /* para aumentar el tamaño del contenedor de acuedro a la letra */
     flex-direction: column;
     width: 100%;
@@ -68,12 +67,11 @@ body {
 
 .text-register {
     font-size: 30px;
-    color: #8d2ca5;
+    /* color: #8d2ca5; */
+    color: rgb(155 0 78 / 94%);
     font-family: 'Acme', sans-serif;
-    /* font-family: 'Roboto', sans-serif; */
     font-weight: bold;
     text-align: center;
-    /* margin-top: 0px; */
     margin-bottom: 8px;
 }
 
@@ -111,7 +109,7 @@ label {
     text-align: center;
 }
 
-#buttonUserRegister {
+#button-user-register {
     background-color: #4C80CA;
     /* background-color: rgb(230, 152, 8); */
     border-radius: 10px;
@@ -122,7 +120,7 @@ label {
     cursor: pointer;
     padding: 16px 32px;
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: auto;
     width: 75%;
     margin-bottom: 3%;
@@ -206,7 +204,7 @@ label {
         font-size: 40px;
     }
 
-    #buttonUserRegister {
+    #button-user-register {
         font-size: 22px;
     }
 
@@ -222,7 +220,7 @@ label {
 @media only screen and (min-width: 1024px) {
     .text-container-register {
         max-width: 30em;
-        height: 35em;
+        height: 30em;
     }
 
     #containerTitleImage {
@@ -232,13 +230,14 @@ label {
     .title-spanish-main {
         font-size: 40px;
         margin: auto;
+        margin-bottom: 1%;
     }
 
     .text-register {
         font-size: 34px;
     }
 
-    #buttonUserRegister {
+    #button-user-register {
         font-size: 16px;
     }
 

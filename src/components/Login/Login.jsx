@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import video from '../../video/logo-teclas.mp4';
+import video from '../../video/loginVideo.mp4';
 import google from"../../images/google.png";
 import back from"../../images/back.png";
 
@@ -72,15 +72,15 @@ export function Login() {
             <section className="text-container">
                 <h3 className="text-login">Iniciar sesión</h3>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor='email' className="email">Email<br></br>
-                        <input type='email' data-testid="createEmail" className="createEmail" placeholder='elichil@example.com' name='email' onChange={handleChange} />
+                    <label htmlFor='email' className="email-password">Email<br></br>
+                        <input type='email' data-testid="createEmail" className="create-email-password" placeholder='elichil@example.com' name='email' onChange={handleChange} />
                     </label>
                     <p id='messageEmail'></p><br></br>
-                    <label htmlFor='password' className="password">Contraseña<br></br>
-                        <input type='password' data-testid="createPassword" className="createPassword" placeholder='Mayor a 6 carácteres' name='password' onChange={handleChange} />
+                    <label htmlFor='password' className="email-password">Contraseña<br></br>
+                        <input type='password' data-testid="createPassword" className="create-email-password" placeholder='Mayor a 6 carácteres' name='password' onChange={handleChange} />
                     </label>
                     {error && <p id='messageVerificado'>{error}</p>}
-                    <button id='getInto' onChange={handleChange}> Iniciar sesión</button>
+                    <button id='get-into' onChange={handleChange}> Iniciar sesión</button>
                     <div id='registerLink'>
                         <p className="to-register">¿No tienes cuenta? <a href='/register'><span className='link-span'><strong>Regístrate</strong></span></a></p>
                     </div>
