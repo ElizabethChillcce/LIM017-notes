@@ -4,15 +4,12 @@ import { addOrEditNote } from "../../context/noteFirestore";
 /* import laptop from '../../images/laptop.png'; */
 import "./Home.css";
 import video1 from "../../video/videoHome.mp4";
-/* import iconoSignOff from "../../images/iconoSignOff.png"; */
 import video2 from "../../video/icono-sign-off.mp4";
-
 
 export function NoteForm() {
     const initialStateValue = {
         title: "",
         description: "",
-
         autor: localStorage.getItem("userEmail"),
         timeStamp: new Date(),
     };

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 5%;
+    padding-top: 1%;
 }
 
 .title-register-main {
@@ -12,7 +12,6 @@
     font-family: 'Acme', sans-serif;
     font-weight: bold;
     font-size: 60px;
-    /* esto recien se hizo */
     margin: 5px;
     margin-top: 8px;
     text-shadow: #70BF5A;
@@ -24,15 +23,10 @@
     display: flex;
     justify-content: center;
     margin: auto;
-    /*  padding-bottom: 10px;
-    padding-top: 10px;
-    margin-top: 5%; */
     border-radius: 8px;
     box-shadow: 0px 0px 5px 1px #666464;
-    /* max-width: 80%; */
     max-width: 65%;
     height: 38em;
-    /* para aumentar el tamaño del contenedor de acuedro a la letra */
     flex-direction: column;
 }
 
@@ -83,17 +77,8 @@
     margin-inline: 1%;
 }
 
-#messageVerificado {
-    font-size: 18px;
-    color: #f30000;
-    font-family: inherit;
-    display: flex;
-    justify-content: center;
-}
-
 #get-into {
     background-color: #4C80CA;
-    /* background-color: rgb(230, 152, 8); */
     border-radius: 10px;
     display: flex;
     border: none;
@@ -110,7 +95,7 @@
     size: 20PX;
 }
 
-#buttonGoogle {
+#button-google {
     border-radius: 10px;
     display: flex;
     border: none;
@@ -127,14 +112,13 @@
     margin-bottom: 3%;
 }
 
-#registerLink {
+#register-link {
     color: #030303;
     margin: 1px;
     text-align: center;
 }
 
 #to-welcome {
-    /* background-color: #4C80CA; */
     border-radius: 50%;
     border: none;
     display: flex;
@@ -163,14 +147,12 @@ a{
 
 @media only screen and (min-width: 768px) {
     .text-container {
-        /* max-width: 35em; */
         max-width: 40em;
     }
 }
 
 @media only screen and (min-width: 1024px) {
     .text-container {
-        /* max-width: 25em; */
         max-width: 30em;
         height: 30em;
         margin-top: 2%;

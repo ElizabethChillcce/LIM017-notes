@@ -24,13 +24,7 @@
   width: 15%;
 }
 
-/* i {
-  font-size: 50px;
-} */
-
 .icono-singn{
-  /* width: 30%;
-  height: 30%; */
   width: 60%;
   height: 40%;
   padding-top: 40%;
@@ -46,12 +40,10 @@
   border-radius: 10px;
   border: 1px solid #5878ca;
   box-shadow: 0 2px #5878ca;
-  /* width:82%; */
   width: 30%;
   margin: auto;
   margin-top: 7%;
   background-color: #c5fcf0;
-  /* background-color: rgb(230, 152, 8); */
 }
 
 .form-for-notes {

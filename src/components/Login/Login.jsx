@@ -64,7 +64,6 @@ export function Login() {
             <section>
                 <div id="container-title-image">
                     <h2 className="title-register-main">YUYARINAPAQ</h2>
-                    {/* <img src={laptop} className="laptop" alt="" /> */}
                     <video src={video} type="video/mp4" className="logo-video-register" with='40px' autoPlay muted loop> </video>
                 </div>
                 <h3 className="title-spanish-main">Recordatorio</h3>
@@ -72,20 +71,20 @@ export function Login() {
             <section className="text-container">
                 <h3 className="text-login">Iniciar sesión</h3>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor='email' className="email-password">Email<br></br>
+                    <label htmlFor='email' className="email-password">Email
                         <input type='email' data-testid="createEmail" className="create-email-password" placeholder='elichil@example.com' name='email' onChange={handleChange} />
                     </label>
-                    <p id='messageEmail'></p><br></br>
-                    <label htmlFor='password' className="email-password">Contraseña<br></br>
+                    <p id='messageEmail'></p>
+                    <label htmlFor='password' className="email-password">Contraseña
                         <input type='password' data-testid="createPassword" className="create-email-password" placeholder='Mayor a 6 carácteres' name='password' onChange={handleChange} />
                     </label>
-                    {error && <p id='messageVerificado'>{error}</p>}
+                    {error && <p id='message-verified'>{error}</p>}
                     <button id='get-into' onChange={handleChange}> Iniciar sesión</button>
-                    <div id='registerLink'>
+                    <div id='register-link'>
                         <p className="to-register">¿No tienes cuenta? <a href='/register'><span className='link-span'><strong>Regístrate</strong></span></a></p>
                     </div>
                 </form>
-                <button onClick={handleGoogle} id='buttonGoogle'> Iniciar con  <img src={google} className="logo-google" alt="" /></button>
+                <button onClick={handleGoogle} id='button-google'> Iniciar con  <img src={google} className="logo-google" alt="" /></button>
                 <div id='to-welcome'>
                     <Link to="/" className="to-welcome">
                         <img src={back} className="logo-back" alt="" />

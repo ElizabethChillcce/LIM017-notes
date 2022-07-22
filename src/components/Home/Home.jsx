@@ -3,7 +3,6 @@ import { NoteForm } from "./NoteForm";
 import { useAuth } from "../../context/authContext";
 
 import {
-  watchNotes,
   deleteNote,
   watchNotesDos,
   updateNote,
@@ -16,15 +15,7 @@ export const Home = (props) => {
 
   const [disableBtn, setDisableBtn] = useState(true); // este estado me permite controlar el atributo disable de input y textarea
 
-  const { user, logout, loading } = useAuth();
-
- // const getNotes = async () => {   /* esta funcion no se usa ya no lo compartiendo como props */
-  /* console.log(user);
-    await watchNotes().then((response) => {
-      console.log(response);
-      setNotes(response);
-    });
-  }; */
+  const { user } = useAuth();
 
   //funcion para editar  y actualizar las notas
     const updateNotes = (note) => {

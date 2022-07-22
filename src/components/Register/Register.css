@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 1%;
+    padding-top: 1%;
 }
 
 .title-register-main {
@@ -49,25 +49,19 @@ body {
 .text-container-register {
     background-color: rgb(252, 247, 247);
     display: flex;
-    /* justify-content:center; */
     margin: 0 auto;
     padding-bottom: 10px;
     padding-top: auto;
     margin-top: 0%;
     border-radius: 8px;
     box-shadow: 0px 0px 5px 1px #666464;
-    /* max-width: 600px;  */
-    /* esto se aumento */
     height: 35em;
-    /* para aumentar el tamaño del contenedor de acuedro a la letra */
     flex-direction: column;
     width: 100%;
-    /* esto se aumento */
 }
 
 .text-register {
     font-size: 30px;
-    /* color: #8d2ca5; */
     color: rgb(155 0 78 / 94%);
     font-family: 'Acme', sans-serif;
     font-weight: bold;
@@ -82,9 +76,7 @@ label {
     margin-left: 10%;
 }
 
-#createName,
-#createEmail,
-#createPassword {
+#input-email-password {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -96,13 +88,13 @@ label {
     margin-top: 0px;
     font-family: sans-serif;
     margin: auto;
-    margin-bottom: 3%;
+    margin-bottom: 6%;
     text-align: left;
     color: #000000;
 }
 
 #message-verified {
-    font-size: 20px;
+    font-size: 24px;
     color: #f30000;
     font-family: inherit;
     font-weight: bold;
@@ -123,12 +115,12 @@ label {
     font-family: 'Roboto', sans-serif;
     margin: auto;
     width: 75%;
-    margin-bottom: 3%;
+    margin-bottom: 6%;
     size: 20PX;
     font-weight: bold;
 }
 
-#buttonGoogle {
+#button-google {
     border-radius: 10px;
     display: flex;
     border: none;
@@ -146,7 +138,7 @@ label {
     margin-bottom: 3%;
 }
 
-#containerLink {
+#container-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,7 +160,7 @@ label {
 
 }
 
-.linkBeginning {
+.link-beginning {
     font-family: sans-serif;
     text-align: center;
     justify-content: center;
@@ -187,8 +179,8 @@ label {
         max-width: 40em;
     }
 
-    #containerTitleImage {
-        margin-top: 3%;
+    #container-title-image {
+        padding-top: 3%;
     }
 
     .title-register-main {
@@ -205,14 +197,14 @@ label {
     }
 
     #button-user-register {
-        font-size: 22px;
+        font-size: 25px;
     }
 
-    #containerLink {
-        height: 53px;
+    #container-link {
+        height: 54px;
     }
 
-    .linkBeginning {
+    .link-beginning {
         font-size: 25px;
     }
 }
@@ -223,8 +215,8 @@ label {
         height: 30em;
     }
 
-    #containerTitleImage {
-        margin-top: 1%;
+    #container-title-image {
+        padding-top: 1%;
     }
 
     .title-spanish-main {
@@ -241,11 +233,11 @@ label {
         font-size: 16px;
     }
 
-    #containerLink {
-        height: 46px;
+    #containerlink {
+        height: 47px;
     }
 
-    .linkBeginning {
+    .link-beginning {
         font-size: 1.1rem;
     }
 }
