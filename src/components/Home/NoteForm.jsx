@@ -10,7 +10,7 @@ export function NoteForm() {
     const initialStateValue = {
         title: "",
         description: "",
-        autor: localStorage.getItem("userEmail"),
+        autor: localStorage.getItem("email"),
         timeStamp: new Date(),
     };
 

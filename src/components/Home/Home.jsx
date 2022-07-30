@@ -15,7 +15,7 @@ export const Home = (props) => {
 
   const [disableBtn, setDisableBtn] = useState(true); // este estado me permite controlar el atributo disable de input y textarea
 
-  /* const { user } = useAuth(); */
+  const { user } = useAuth();
 
   //funcion para editar  y actualizar las notas
     const updateNotes = (note) => {
@@ -25,7 +25,7 @@ export const Home = (props) => {
 
   useEffect(() => {
     console.log("useEffect");
-    watchNotesDos(setNotes); //actualizando con el useStade "setNotes" pasandolo como un callback para ello usando la funcion watchNotesDos q tiene onSnapshot
+    watchNotesDos(setNotes, user); //actualizando con el useStade "setNotes" pasandolo como un callback para ello usando la funcion watchNotesDos q tiene onSnapshot
     console.log("hola");
     console.log("Home");
   }, []);

@@ -26,7 +26,7 @@ export const addOrEditNote = async (noteObject) => {
 //funciòn q utiliza onSnapshot para recuperar todos los documentos de una colección
 export const watchNotesDos = (setNotesCallback, user) => {
   console.log("funcion original")
-  const queryDocs = query(collection(db, "notes") , where("autor", "==", localStorage.getItem("userEmail")));
+  const queryDocs = query(collection(db, "notes") , where("autor", "==", user.email));
   onSnapshot(queryDocs, (querySnapshot) => {
     const notes = [];
     querySnapshot.forEach((doc) => {
