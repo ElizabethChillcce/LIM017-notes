@@ -4,17 +4,24 @@ body {
 }
 
 #welcomePage {
+   /*  display: flex;
+    flex-direction: column;
+    margin-top: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0%; */
     display: flex;
     flex-direction: column;
     margin-top: 0 auto;
-    /* esto se cambio */
-    /* margin-top: 100px; */
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
     padding-top: 0%;
-    /* esto se aumento */
+    flex-wrap: nowrap;
+    align-content: center;
 }
 
 .title-main {
@@ -24,7 +31,7 @@ body {
     /* font-family: 'Secular One', sans-serif; */
     font-family: 'Acme', sans-serif;
     font-weight: bold;
-    font-size: 65px;
+    font-size: 40px;
     margin: 5px;
     color: rgb(155 0 78 / 94%);
     text-shadow: #70BF5A;
@@ -36,7 +43,7 @@ body {
     font-family: 'Roboto', sans-serif;
     /* font-family: 'Courgette', cursive; */
     font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
     margin: 5px;
     margin-top: 5px;
     color: #c5fcf0;
@@ -46,22 +53,22 @@ body {
 
 p {
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Acme', sans-serif;
     margin-top: 1%;
     /* esto se aumento */
 }
 
 .logo-video {
-    width: 5%;
+    width: 70%;
     /* height: 25%; */
 }
 
 .containerGetInto,
 .containerLogin {
    /*  width: 170px; */
-    width: 190px;
-    height: 30px;
+    width: 120px;
+    height: 20px;
     cursor: pointer;
     /* background: transparent; */
     border: 1px solid #91C9FF;
@@ -80,13 +87,13 @@ p {
     text-align: center;
     justify-content: center;
     align-items: center;
-    /* margin-left: 20px; */
     margin-top: 2%;
     color: rgb(155 0 78 / 94%);
-    font-size: 150%;
+    font-size: 105%;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
+    padding-left: 11%;
 }
 
 .link-login {
@@ -96,11 +103,11 @@ p {
     /* margin-left: 20px; */
     margin-top: 2%;
     color: rgb(155 0 78 / 94%);
-    font-size: 150%;
+    font-size: 105%;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
-    padding-left: 10%;
+    padding-left: 6%;
 }
 
 .btn-welcome {
