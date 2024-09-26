@@ -3,11 +3,12 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import {createMemoryHistory} from 'history'
 import {Router} from 'react-router-dom'
-import {Login} from '../../../components/Login/Login';
-import { AuthProvider } from '../../../context/authContext.js';
+import {Login} from './Login';
+import { AuthProvider } from '../../context/authContext.js';
 
-jest.mock("../../../context/authContext.js")
+jest.mock("../../context/authContext.js")
 
+describe("prueba del Login", () => {
 test('renders YUYARINAPAQ', () => {
   const history = createMemoryHistory();
     render(
@@ -36,3 +37,4 @@ test('renders YUYARINAPAQ', () => {
     expect(emailInput).toBeInTheDocument();
     expect(passwordInput).toBeInTheDocument();
   })
+})

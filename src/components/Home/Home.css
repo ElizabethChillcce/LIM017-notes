@@ -1,0 +1,239 @@
+.container-title-image-home {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.title-form {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Acme', sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: rgb(155 0 78 / 94%);
+  text-shadow: #70BF5A;
+  text-shadow: -1px 0 #59AFCA, 0 1px #59AFCA, 1px 0 #59AFCA, 0 -1px #59AFCA, -1px 1px 0 #59AFCA, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA;
+}
+
+.btn-sign-off {
+  padding: 0;
+  border: none;
+  background: none;
+  height: 20%;
+  width: 15%;
+}
+
+.icono-singn{
+  width: 60%;
+  height: 40%;
+  padding-top: 40%;
+}
+
+.name-paragraph-form{
+  font-size: 25px;
+  margin-bottom: 1px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#box-comment {
+  border-radius: 10px;
+  border: 1px solid #5878ca;
+  box-shadow: 0 2px #5878ca;
+  width: 30%;
+  margin: auto;
+  margin-top: 7%;
+  background-color: #c5fcf0;
+}
+
+.form-for-notes {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-note {
+  height: 30px;
+  border-radius: 8px;
+  border: solid 1px #5878ca;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-left: 14px;
+  color: black;
+  outline-color: #575353;
+  box-shadow: 0 2px #999;
+  background-color: white;
+  width: 85%;
+  margin-bottom: 2%;
+  margin-top: 5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.description-comment {
+  color: whitesmoke;
+  margin-bottom: 0px;
+}
+
+.comment-post {
+  height: 50px;
+  border-radius: 8px;
+  border: solid 1px #5878ca;
+  font-size: 50%;
+  padding-top: 2%;
+  padding-left: 14px;
+  color: #575353;
+  outline-color: #575353;
+  box-shadow: 0 2px #999;
+  background-color: white;
+  width: auto;
+  margin-bottom: 5%;
+  resize: none;
+}
+
+.btn-save {
+  height: 8%;
+  width: 19%;
+  font-size: 19px;
+  background-color: rgb(155 0 78 / 94%);
+  border: 1px solid;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 2%;
+  padding: 1%;
+}
+
+/* empieza el contenedor de las notas */
+.container-post-notes {
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  width: 70%;
+  height: 60%;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 15px;
+  background-color: #c5fcf0;
+}
+
+.post-Notes {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  margin: 8px;
+  padding: 20px;
+}
+
+.container-post-title {
+  background-color: white;
+  border: 1px solid whitesmoke;
+  height: 3em;
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-top: 6%;
+}
+
+.post-title {
+  font-size: 30px;
+  color: black;
+  border: 0;
+  outline: none;
+}
+
+.post-description {
+  color: black;
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 8px;
+  border: solid 1px whitesmoke;
+  height: 3em;
+  background-color: white;
+  resize: none;
+  width: 99%;
+}
+
+.container-btn-date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7%;
+}
+
+.post-date {
+  margin-right: 20%;
+}
+
+#date{
+  color: black;
+  font-size: 15px;
+}
+
+.btn-edit>i {
+  /* esta etiqueta i permite identificar al icono q vamos a cambiar color */
+  color: rgb(0, 255, 64);
+}
+
+.refresh::before {
+  font: var(--fa-solid-fa-rotate-right);
+  color: rgb(68, 0, 255);
+
+}
+
+.fa-solid {
+  color: red;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  #box-comment {
+    width: 70%;
+    height: 30%;
+    margin-top: 4%;
+    margin-left: 15%;
+    font-size: 40px;
+    font-size: 50%;
+  }
+
+  .title-note {
+    font-size: 30px;
+  }
+
+  .comment-post {
+    font-size: 27px;
+    height: 3em;
+    color: black;
+  }
+
+  .icono-singn{
+    width: 60%;
+    height: 40%;
+    padding-top: 50%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .title-note {
+    font-size: 30px;
+  }
+
+  #box-comment {
+    max-width: 50%;
+    margin-left: 25%;
+  }
+
+  .comment-post {
+    font-size: 20px;
+    width: 22em;
+    height: 3em;
+  }
+
+  .container-post-notes {
+    width: 50%;
+  }
+}
